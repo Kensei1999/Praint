@@ -6,8 +6,63 @@
 //  Copyright (c) 2014年 石井　建世. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+float sendredlineNumber ;
+float sendgreenlineNumber ;
+float sendbluelineNumber ;
+float sendfutosaNumber ;
+float sendopacityNumber ;
+int i ;
 
-@interface ViewController : UIViewController
+
+#import <UIKit/UIKit.h>
+#import <Twitter/Twitter.h>
+#import <Social/Social.h>
+
+@interface ViewController : UIViewController {
+    
+    UIImageView *canvas ;
+    //お絵描きしていくキャンバス（画用紙）を準備します
+    
+    UIImageView *haikeigazou ;
+    //背景画像を表示する
+    
+    UIImage *tweetpic ;
+    //tweetする画像
+    
+    CGPoint touchPoint ;
+    //お絵描きに使う座標を準備します
+    
+    UIImage *capture ; //作った絵を一時的に保管するUIImage型のcaptureという名前の箱を準備
+    
+    NSUserDefaults *savecanvas ;
+    
+    IBOutlet UISwitch *eraser ;
+    
+    IBOutlet UILabel *eraserLabel ;
+    
+    int rgb ;//ペンの色
+    
+    int pickerNum ;
+    
+    int actionNum ;
+    
+    BOOL mouseSwiped;
+
+    
+    IBOutlet UIView *hideView;
+}
+
+
+-(IBAction)reset:(id)sender ; //リセットボタン
+
+-(void)png ; //画像をpng形式にする
+
+-(IBAction)eraser ;
+
+-(IBAction)setting ;
+
+-(IBAction)jiman:(id)sender ;
+
+
 
 @end
