@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start Table View Controller-->
         <scene sceneID="kTQ-lh-gec">
             <objects>
-                <viewController id="kOH-O3-LAx" sceneMemberID="viewController">
+                <viewController id="kOH-O3-LAx" customClass="startTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CP7-lj-eNU"/>
                         <viewControllerLayoutGuide type="bottom" id="Kht-WP-Ipt"/>
@@ -34,6 +34,9 @@
                                 <state key="normal" image="使い方ボタン.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="vZg-SY-UJ0" kind="modal" id="xfY-dJ-znh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -81,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpp-d2-ycG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="-585"/>
+            <point key="canvasLocation" x="157" y="-585"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="xYJ-PL-VnO">
@@ -145,6 +148,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFw-pj-WkY">
                                         <rect key="frame" x="285" y="18" width="22" height="22"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="vZg-SY-UJ0" kind="modal" id="mSz-gX-qJ5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kw-zt-yU5">
                                         <rect key="frame" x="238" y="15" width="32" height="28"/>
@@ -349,4 +355,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="mSz-gX-qJ5"/>
+    </inferredMetricsTieBreakers>
 </document>

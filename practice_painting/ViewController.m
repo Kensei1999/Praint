@@ -756,25 +756,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
         }
     }
   
+    if (actionNum == 0) {
+        canvas.image = nil;
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

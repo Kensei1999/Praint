@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start Table View Controller-->
         <scene sceneID="bj8-Gy-ubk">
             <objects>
-                <viewController id="jBV-ii-hX0" sceneMemberID="viewController">
+                <viewController id="jBV-ii-hX0" customClass="startTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MCf-XC-Aax"/>
                         <viewControllerLayoutGuide type="bottom" id="liT-jB-LOK"/>
@@ -34,6 +34,9 @@
                                 <state key="normal" image="使い方ボタン.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="7yK-Ar-BOo" kind="modal" id="qO9-Mo-nIH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -79,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nfb-gr-CGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="-585"/>
+            <point key="canvasLocation" x="154" y="-585"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -350,4 +353,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="qO9-Mo-nIH"/>
+    </inferredMetricsTieBreakers>
 </document>

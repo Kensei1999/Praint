@@ -46,7 +46,6 @@
         NSLog(@"3.5");
     }
     
-    NSLog(@"%d",rect.size.height);
     
     
     // StoryBoardのインスタンス化
@@ -57,6 +56,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = mainViewController;
     [self.window makeKeyAndVisible];
+    
+    
+    
     
     return YES;
 
