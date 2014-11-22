@@ -10,6 +10,7 @@
 #import "SettingViewController.h"
 
 @interface ViewController ()
+<UIActionSheetDelegate>
 
 @end
 
@@ -413,190 +414,349 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
     if (actionNum == 1){
     
-      if (buttonIndex == 1){//ツイートをする
         
         
-        [self png] ;
-        [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
-        
-        haikeigazou.alpha = 0.0;
-        hideView.alpha = 0.0 ;
-        //描写領域の設定
-        CGSize size = CGSizeMake(canvas.frame.size.width ,canvas.frame.size.height);
-        UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
-        
-        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
-        UIImage *twiImg = UIGraphicsGetImageFromCurrentImageContext() ;
-        
-        
-        /*
-        
-        //グラフィックスコンテキスト取得
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        
-        //コンテキストの位置の切り取り開始位置に合わせる
-        CGPoint point = canvas.frame.origin;
-        CGAffineTransform affineMoveLeftTop = CGAffineTransformMakeTranslation(
-                                                                               -(int)point.x,
-                                                                               -(int)point.y);
-        CGContextConcatCTM(context, affineMoveLeftTop);
-        
-        //Viewから切り取る
-        UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-        */
-        
-        UIGraphicsEndImageContext() ;
-        SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
-
-        [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
-        haikeigazou.alpha = 0.5;
-        hideView.alpha = 1.0 ;
-        
-        
-//        tweetpic = canvas.image ;
-//        UIImage *img = [UIImage imageNamed:@"スタートボタン.png"];
-        
-//        [self postToTwitter:self text:@"こんな絵が描けました！" imageName:tweetpic url:@""] ;
-        
-            NSString *serviceType = SLServiceTypeTwitter;
-            if ([SLComposeViewController isAvailableForServiceType:serviceType]) {
-                SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:serviceType];
-                
-                [controller setCompletionHandler:^(SLComposeViewControllerResult result) {
-                    if (result == SLComposeViewControllerResultDone) {
-                        //投稿成功時の処理
-                        NSLog(@"%@での投稿に成功しました", serviceType);
-                    }
-                }];
-                
-                
-                NSString *string = [NSString stringWithFormat:@"こんな絵が描けました！"];
-                [controller setInitialText:string];
-                [controller addImage:twiImg];
-                
-                [self presentViewController:controller
-                                   animated:NO
-                                 completion:NULL];
-            }
-        
-        
-        
-    }else if(buttonIndex == 0) {//画像保存
-        
-        [self png] ;
-        
-        [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
-        
-        haikeigazou.alpha = 0.0;
-        hideView.alpha = 0.0 ;
-        
-        //範囲
-        CGRect rect = CGRectMake(0, 0, 320, 568) ;
-        
-        UIGraphicsBeginImageContext(rect.size) ;
-        
-        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
-        UIImage *capture = UIGraphicsGetImageFromCurrentImageContext() ;
-        
-        UIGraphicsEndImageContext() ;
-        SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
-        
-        //キャプチャした画像の保存
-        UIImageWriteToSavedPhotosAlbum(capture,self,selector,nil) ;
-        UIGraphicsEndImageContext() ;
-        
-        [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
-        
-        haikeigazou.alpha = 0.5;
-        hideView.alpha = 1.0 ;
-        
-        
-        
-        
-    }else if (buttonIndex == 2){//facebookに投稿
-        
-        [self png] ;
-        [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
-        
-        haikeigazou.alpha = 0.0;
-        hideView.alpha = 0.0 ;
-        //描写領域の設定
-        CGSize size = CGSizeMake(canvas.frame.size.width ,canvas.frame.size.height);
-        UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
-        
-        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
-        UIImage *FaceImg = UIGraphicsGetImageFromCurrentImageContext() ;
-        
-        UIGraphicsEndImageContext() ;
-        SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
-        
-        [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
-        haikeigazou.alpha = 0.5;
-        hideView.alpha = 1.0 ;
-        
-        NSString *serviceType = SLServiceTypeFacebook;
-        if ([SLComposeViewController isAvailableForServiceType:serviceType]) {
-            SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:serviceType];
-            
-            [controller setCompletionHandler:^(SLComposeViewControllerResult result) {
-                if (result == SLComposeViewControllerResultDone) {
-                    //投稿成功時の処理
-                    NSLog(@"%@での投稿に成功しました", serviceType);
-                }
-            }];
+        if(buttonIndex == 0) {//画像保存
             
             
-            NSString *string = [NSString stringWithFormat:@"こんな絵が描けました！"];
-            [controller setInitialText:string];
-            [controller addImage:FaceImg];
-            
-            [self presentViewController:controller
-                               animated:NO
-                             completion:NULL];
-            
-            
-        
-        
-        }else if (buttonIndex == 3){//lineに投稿
             
             [self png] ;
+            
+            
+            
             [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
             
+            
+            
             haikeigazou.alpha = 0.0;
+            
             hideView.alpha = 0.0 ;
-            //描写領域の設定
-            CGSize size = CGSizeMake(canvas.frame.size.width ,canvas.frame.size.height);
-            UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
+            
+            
+            
+            //範囲
+            
+            CGRect rect = CGRectMake(0, 0, 320, 568) ;
+            
+            
+            
+            UIGraphicsBeginImageContext(rect.size) ;
+            
+            
             
             [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
-            UIImage *lineImg = UIGraphicsGetImageFromCurrentImageContext() ;
+            
+            UIImage *capture = UIGraphicsGetImageFromCurrentImageContext() ;
+            
+            
             
             UIGraphicsEndImageContext() ;
+            
             SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
             
+            
+            
+            //キャプチャした画像の保存
+            
+            UIImageWriteToSavedPhotosAlbum(capture,self,selector,nil) ;
+            
+            UIGraphicsEndImageContext() ;
+            
+            
+            
             [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
+            
+            
+            
             haikeigazou.alpha = 0.5;
+            
             hideView.alpha = 1.0 ;
             
             
             
             
-            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-            [pasteboard setData:UIImagePNGRepresentation(lineImg) forPasteboardType:@"public.png"];
-            NSString *LineUrlString = [NSString stringWithFormat:@"line://msg/image/%@", pasteboard.name];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:LineUrlString]];
-        
-    }
-        
-    }
-    }else if (actionNum == 0){
-        
-        if(buttonIndex == 0){
-        
-        canvas.image = nil;
-        
+            
+            
+            
+            
+            
+        }else if (buttonIndex == 1){//ツイートをする
+            
+            
+            
+            
+            
+            [self png] ;
+            
+            [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
+            
+            
+            
+            haikeigazou.alpha = 0.0;
+            
+            hideView.alpha = 0.0 ;
+            
+            //描写領域の設定
+            
+            CGSize size = CGSizeMake(canvas.frame.size.width ,canvas.frame.size.height);
+            
+            UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
+            
+            
+            
+            [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
+            
+            UIImage *twiImg = UIGraphicsGetImageFromCurrentImageContext() ;
+            
+            
+            
+            
+            
+            /*
+             
+             
+             
+             //グラフィックスコンテキスト取得
+             
+             CGContextRef context = UIGraphicsGetCurrentContext();
+             
+             
+             
+             //コンテキストの位置の切り取り開始位置に合わせる
+             
+             CGPoint point = canvas.frame.origin;
+             
+             CGAffineTransform affineMoveLeftTop = CGAffineTransformMakeTranslation(
+             
+             -(int)point.x,
+             
+             -(int)point.y);
+             
+             CGContextConcatCTM(context, affineMoveLeftTop);
+             
+             
+             
+             //Viewから切り取る
+             
+             UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+             
+             */
+            
+            
+            
+            UIGraphicsEndImageContext() ;
+            
+            SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
+            
+            
+            
+            [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
+            
+            haikeigazou.alpha = 0.5;
+            
+            hideView.alpha = 1.0 ;
+            
+            
+            
+            
+            
+            //        tweetpic = canvas.image ;
+            
+            //        UIImage *img = [UIImage imageNamed:@"スタートボタン.png"];
+            
+            
+            
+            //        [self postToTwitter:self text:@"こんな絵が描けました！" imageName:tweetpic url:@""] ;
+            
+            
+            
+            NSString *serviceType = SLServiceTypeTwitter;
+            
+            if ([SLComposeViewController isAvailableForServiceType:serviceType]) {
+                
+                SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:serviceType];
+                
+                
+                
+                [controller setCompletionHandler:^(SLComposeViewControllerResult result) {
+                    
+                    if (result == SLComposeViewControllerResultDone) {
+                        
+                        //投稿成功時の処理
+                        
+                        NSLog(@"%@での投稿に成功しました", serviceType);
+                        
+                    }
+                    
+                }];
+                
+                
+                
+                
+                
+                NSString *string = [NSString stringWithFormat:@"こんな絵が描けました！"];
+                
+                [controller setInitialText:string];
+                
+                [controller addImage:twiImg];
+                
+                
+                
+                [self presentViewController:controller
+                 
+                                   animated:NO
+                 
+                                 completion:NULL];
+                
+            }
+            
+            
+            
+            
+            
+            
+            
+        }else if (buttonIndex == 2){//facebookに投稿
+            
+            
+            
+            [self png] ;
+            
+            [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
+            
+            
+            
+            haikeigazou.alpha = 0.0;
+            
+            hideView.alpha = 0.0 ;
+            
+            //描写領域の設定
+            
+            CGSize size = CGSizeMake(canvas.frame.size.width ,canvas.frame.size.height);
+            
+            UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
+            
+            
+            
+            [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
+            
+            UIImage *FaceImg = UIGraphicsGetImageFromCurrentImageContext() ;
+            
+            
+            
+            UIGraphicsEndImageContext() ;
+            
+            SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
+            
+            
+            
+            [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
+            
+            haikeigazou.alpha = 0.5;
+            
+            hideView.alpha = 1.0 ;
+            
+            
+            
+            NSString *serviceType = SLServiceTypeFacebook;
+            
+            if ([SLComposeViewController isAvailableForServiceType:serviceType]) {
+                
+                SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:serviceType];
+                
+                
+                
+                [controller setCompletionHandler:^(SLComposeViewControllerResult result) {
+                    
+                    if (result == SLComposeViewControllerResultDone) {
+                        
+                        //投稿成功時の処理
+                        
+                        NSLog(@"%@での投稿に成功しました", serviceType);
+                        
+                    }
+                    
+                }];
+                
+                
+                
+                
+                
+                NSString *string = [NSString stringWithFormat:@"こんな絵が描けました！"];
+                
+                [controller setInitialText:string];
+                
+                [controller addImage:FaceImg];
+                
+                
+                
+                [self presentViewController:controller
+                 
+                                   animated:NO
+                 
+                                 completion:NULL];
+                
+            }
+            
+        }else if (buttonIndex == 3){//lineに投稿
+                
+                
+                
+                [self png] ;
+                
+                [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
+                
+                
+                
+                haikeigazou.alpha = 0.0;
+                
+                hideView.alpha = 0.0 ;
+                
+                //描写領域の設定
+                
+                CGSize size = CGSizeMake(canvas.frame.size.width ,canvas.frame.size.height);
+                
+                UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
+                
+                
+                
+                [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
+                
+                UIImage *lineImg = UIGraphicsGetImageFromCurrentImageContext() ;
+                
+                
+                
+                UIGraphicsEndImageContext() ;
+                
+                SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
+                
+                
+                
+                [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
+                
+                haikeigazou.alpha = 0.5;
+                
+                hideView.alpha = 1.0 ;
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                
+                [pasteboard setData:UIImagePNGRepresentation(lineImg) forPasteboardType:@"public.png"];
+                
+                NSString *LineUrlString = [NSString stringWithFormat:@"line://msg/image/%@", pasteboard.name];
+                
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:LineUrlString]];
         }
     }
+  
+
 }
 
 
