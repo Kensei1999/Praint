@@ -55,6 +55,10 @@
 		53D17B1719CC489A006C86C6 /* eyedropper2.png in Resources */ = {isa = PBXBuildFile; fileRef = 53D17B1319CC489A006C86C6 /* eyedropper2.png */; };
 		53D17B1819CC489A006C86C6 /* gear26.png in Resources */ = {isa = PBXBuildFile; fileRef = 53D17B1419CC489A006C86C6 /* gear26.png */; };
 		53D17B1919CC489A006C86C6 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 53D17B1519CC489A006C86C6 /* share.png */; };
+		53DFA7171A209BE100F3AFE8 /* PraintIcon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DFA7131A209BE100F3AFE8 /* PraintIcon_58.png */; };
+		53DFA7181A209BE100F3AFE8 /* PraintIcon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DFA7141A209BE100F3AFE8 /* PraintIcon_80.png */; };
+		53DFA7191A209BE100F3AFE8 /* PraintIcon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DFA7151A209BE100F3AFE8 /* PraintIcon_120.png */; };
+		53DFA71A1A209BE100F3AFE8 /* PraintIcon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DFA7161A209BE100F3AFE8 /* PraintIcon_1024.png */; };
 		53FC324A19D57048000961C0 /* startTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FC324919D57048000961C0 /* startTableViewController.m */; };
 		53FC324C19D58133000961C0 /* Storyboard-3.5Inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FC324B19D58133000961C0 /* Storyboard-3.5Inch.storyboard */; };
 /* End PBXBuildFile section */
@@ -126,6 +130,10 @@
 		53D17B1319CC489A006C86C6 /* eyedropper2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyedropper2.png; sourceTree = "<group>"; };
 		53D17B1419CC489A006C86C6 /* gear26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear26.png; sourceTree = "<group>"; };
 		53D17B1519CC489A006C86C6 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		53DFA7131A209BE100F3AFE8 /* PraintIcon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PraintIcon_58.png; sourceTree = "<group>"; };
+		53DFA7141A209BE100F3AFE8 /* PraintIcon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PraintIcon_80.png; sourceTree = "<group>"; };
+		53DFA7151A209BE100F3AFE8 /* PraintIcon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PraintIcon_120.png; sourceTree = "<group>"; };
+		53DFA7161A209BE100F3AFE8 /* PraintIcon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PraintIcon_1024.png; sourceTree = "<group>"; };
 		53FC324819D57048000961C0 /* startTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = startTableViewController.h; sourceTree = "<group>"; };
 		53FC324919D57048000961C0 /* startTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startTableViewController.m; sourceTree = "<group>"; };
 		53FC324B19D58133000961C0 /* Storyboard-3.5Inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard-3.5Inch.storyboard"; sourceTree = "<group>"; };
@@ -245,6 +253,10 @@
 		5338EA6F1915D2B0005FE15C /* pic */ = {
 			isa = PBXGroup;
 			children = (
+				53DFA7131A209BE100F3AFE8 /* PraintIcon_58.png */,
+				53DFA7141A209BE100F3AFE8 /* PraintIcon_80.png */,
+				53DFA7151A209BE100F3AFE8 /* PraintIcon_120.png */,
+				53DFA7161A209BE100F3AFE8 /* PraintIcon_1024.png */,
 				53751A0919E7F62B00D7AA54 /* icon_58.png */,
 				53751A0A19E7F62B00D7AA54 /* icon_80.png */,
 				53751A0B19E7F62B00D7AA54 /* icon_120.png */,
@@ -361,7 +373,10 @@
 				5366F7CF1917572A00E00101 /* hudeicon.png in Resources */,
 				536A2F081917C94500FBAEFE /* 背景.png in Resources */,
 				53D17B1919CC489A006C86C6 /* share.png in Resources */,
+				53DFA71A1A209BE100F3AFE8 /* PraintIcon_1024.png in Resources */,
 				53751A1019E7F62B00D7AA54 /* icon_1024.png in Resources */,
+				53DFA7171A209BE100F3AFE8 /* PraintIcon_58.png in Resources */,
+				53DFA7191A209BE100F3AFE8 /* PraintIcon_120.png in Resources */,
 				533A75AE1918682F004DBAE9 /* スタートボタン.png in Resources */,
 				5338EA6B1915D2A4005FE15C /* new42.png in Resources */,
 				53340B7D199A1D37009ADA7A /* 木目（praint）.png in Resources */,
@@ -385,6 +400,7 @@
 				5338EA6D1915D2A4005FE15C /* picture11.png in Resources */,
 				53751A0F19E7F62B00D7AA54 /* icon_120.png in Resources */,
 				53751A1319E7FAAF00D7AA54 /* Main.storyboard in Resources */,
+				53DFA7181A209BE100F3AFE8 /* PraintIcon_80.png in Resources */,
 				5366F7D319175DC400E00101 /* hudeicon58.png in Resources */,
 				53D17B1619CC489A006C86C6 /* black393.png in Resources */,
 				5338EA721915D3E2005FE15C /* eyedropper2.png in Resources */,

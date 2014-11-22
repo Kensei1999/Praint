@@ -347,10 +347,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
     
-        
-        [self dismissViewControllerAnimated:YES completion:nil] ;
-
-    
+    [self dismissViewControllerAnimated:YES completion:nil] ;
 }
 
 //真っ白に戻す
@@ -723,7 +720,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                 [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
                 
                 UIImage *lineImg = UIGraphicsGetImageFromCurrentImageContext() ;
-                
+            
                 
                 
                 UIGraphicsEndImageContext() ;
