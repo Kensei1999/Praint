@@ -20,53 +20,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
     
-//    //機種による画面サイズの変更
-//    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-//    {
-//        // iPhone
-//        if ([[UIScreen mainScreen] respondsToSelector: @selector(scale)]) {
-//            CGSize result = [[UIScreen mainScreen] bounds].size;
-//            CGFloat scale = [UIScreen mainScreen].scale;
-//            result = CGSizeMake(result.width * scale, result.height * scale);
-//            
-//            if(result.height == 960){
-//                // iPhone4 or 4S
-//                NSLog(@"iphone 4, 4s retina resolution");
-//            }
-//            if(result.height == 1136){
-//                // iPhone5
-//                NSLog(@"iphone 5 resolution");
-//            }
-//            if(result.height == 1704){
-//                //iphone 6
-//                NSLog(@"iphone 6 resolution");
-//            }
-//            if(result.height == 1920){
-//                //iphone 6plus
-//                NSLog(@"iphone 6plus resolution");
-//            }
-//            else{
-//                // iPhone4より古い機種
-//                NSLog(@"iphone standard resolution");
-//            }
-//        }
-//        else
-//        {
-//            // iPad
-//            if ([[UIScreen mainScreen] respondsToSelector: @selector(scale)]) {
-//                // iPad retina
-//                NSLog(@"ipad Retina resolution");
-//            }
-//            else{
-//                // iPad,iPad2
-//                NSLog(@"ipad Standard resolution");
-//            }
-//        }
-//    }
-    
-    pickerNum = 0 ;
     actionNum = 0 ;
     
     //canvas復元
@@ -365,7 +320,6 @@
 //なぞる画像を変更
 -(IBAction)changepic{
     
-    
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init] ;
     [ipc setSourceType:UIImagePickerControllerSourceTypePhotoLibrary] ;
     [ipc setDelegate:self] ;
@@ -375,19 +329,12 @@
     [self.view bringSubviewToFront:canvas] ;
     [self.view bringSubviewToFront:hideView];
     
-    
-    
-    
 }
 
 //フォトライブラリで、画像が選ばれたときの処理
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
-
-
-    
-    if(pickerNum == 0){//背景を変える
     
     [haikeigazou setImage:[info objectForKey:UIImagePickerControllerEditedImage]] ;
     [self dismissViewControllerAnimated:YES completion:nil] ;
@@ -401,16 +348,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
         
         [self dismissViewControllerAnimated:YES completion:nil] ;
-
-        
-
-    }
-    
-
-        
-    
-
-    
 
     
 }
@@ -448,13 +385,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
 - (IBAction)jiman:(id)sender {
     
-    pickerNum = 1 ;
+    actionNum = 1 ;
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@""
                                                              delegate:self
                                                     cancelButtonTitle:@"キャンセル"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"カメラロールに保存する", @"ツイッターで自慢する", nil];
+                                                    otherButtonTitles:@"カメラロールに保存する", @"ツイッターで自慢する",@"facebookで自慢する",@"lineで自慢する", nil];
     [actionSheet showInView:self.view];
 }
 
@@ -473,12 +410,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(pickerNum == 1){
+
+    if (actionNum == 1){
     
-      if (buttonIndex == 1)//ツイートする
-    {
+      if (buttonIndex == 1){//ツイートをする
         
-        pickerNum = 1 ;
         
         [self png] ;
         [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
@@ -545,8 +481,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
         
         
         
-    } else if(buttonIndex == 0) {//画像保存
-        pickerNum = 0 ;
+    }else if(buttonIndex == 0) {//画像保存
         
         [self png] ;
         
@@ -575,7 +510,86 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
         haikeigazou.alpha = 0.5;
         hideView.alpha = 1.0 ;
         
-    }}else if (actionNum == 0){
+        
+        
+        
+    }else if (buttonIndex == 2){//facebookに投稿
+        
+        [self png] ;
+        [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
+        
+        haikeigazou.alpha = 0.0;
+        hideView.alpha = 0.0 ;
+        //描写領域の設定
+        CGSize size = CGSizeMake(canvas.frame.size.width ,canvas.frame.size.height);
+        UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
+        
+        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
+        UIImage *FaceImg = UIGraphicsGetImageFromCurrentImageContext() ;
+        
+        UIGraphicsEndImageContext() ;
+        SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
+        
+        [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
+        haikeigazou.alpha = 0.5;
+        hideView.alpha = 1.0 ;
+        
+        NSString *serviceType = SLServiceTypeFacebook;
+        if ([SLComposeViewController isAvailableForServiceType:serviceType]) {
+            SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:serviceType];
+            
+            [controller setCompletionHandler:^(SLComposeViewControllerResult result) {
+                if (result == SLComposeViewControllerResultDone) {
+                    //投稿成功時の処理
+                    NSLog(@"%@での投稿に成功しました", serviceType);
+                }
+            }];
+            
+            
+            NSString *string = [NSString stringWithFormat:@"こんな絵が描けました！"];
+            [controller setInitialText:string];
+            [controller addImage:FaceImg];
+            
+            [self presentViewController:controller
+                               animated:NO
+                             completion:NULL];
+            
+            
+        
+        
+        }else if (buttonIndex == 3){//lineに投稿
+            
+            [self png] ;
+            [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
+            
+            haikeigazou.alpha = 0.0;
+            hideView.alpha = 0.0 ;
+            //描写領域の設定
+            CGSize size = CGSizeMake(canvas.frame.size.width ,canvas.frame.size.height);
+            UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
+            
+            [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
+            UIImage *lineImg = UIGraphicsGetImageFromCurrentImageContext() ;
+            
+            UIGraphicsEndImageContext() ;
+            SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
+            
+            [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
+            haikeigazou.alpha = 0.5;
+            hideView.alpha = 1.0 ;
+            
+            
+            
+            
+            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+            [pasteboard setData:UIImagePNGRepresentation(lineImg) forPasteboardType:@"public.png"];
+            NSString *LineUrlString = [NSString stringWithFormat:@"line://msg/image/%@", pasteboard.name];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:LineUrlString]];
+        
+    }
+        
+    }
+    }else if (actionNum == 0){
         
         if(buttonIndex == 0){
         

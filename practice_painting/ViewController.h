@@ -41,9 +41,7 @@ int i ;
     IBOutlet UILabel *eraserLabel ;
     
     int rgb ;//ペンの色
-    
-    int pickerNum ;
-    
+        
     int actionNum ;
     
     BOOL mouseSwiped;
