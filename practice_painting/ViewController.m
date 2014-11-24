@@ -120,7 +120,7 @@
       
       [UIView setAnimationDelay:0.25] ; //開始を0.２5秒送らせる
       
-      eraserLabel.center = CGPointMake(400, 273) ; // x座標が244, y座標が223のところに画像を表示
+      eraserLabel.center = CGPointMake(400, 273) ; // x座標が400, y座標が273のところにlabelを表示
       
       [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
       
@@ -140,7 +140,7 @@
       
       [UIView setAnimationDelay:0.25] ; //開始を0.２5秒送らせる
       
-      eraserLabel.center = CGPointMake(-200, 273) ; // x座標が244, y座標が223のところに画像を表示
+      eraserLabel.center = CGPointMake(-200, 273) ; // x座標が-200, y座標が273のところに画像を表示
       
       [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
       
@@ -336,9 +336,11 @@
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
+    UIImage * image = [info objectForKey:UIImagePickerControllerEditedImage] ;
+    [haikeigazou setImage:image] ;
     
-    [haikeigazou setImage:[info objectForKey:UIImagePickerControllerEditedImage]] ;
-    [self dismissViewControllerAnimated:YES completion:nil] ;
+//    [haikeigazou setImage:[info objectForKey:UIImagePickerControllerEditedImage]] ;
+//    [self dismissViewControllerAnimated:YES completion:nil] ;
     
     canvas.backgroundColor = [UIColor clearColor] ;
     canvas.image = nil;
@@ -564,7 +566,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
             
             
             //        [self postToTwitter:self text:@"こんな絵が描けました！" imageName:tweetpic url:@""] ;
-            
             
             
             NSString *serviceType = SLServiceTypeTwitter;
