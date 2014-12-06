@@ -17,7 +17,6 @@
 @implementation ViewController
 
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,14 +35,12 @@
                                                object:nil];
     
     //背景画像用のImageViewのインスタンスを生成する
-//    haikeigazou = [[UIImageView alloc] initWithImage:nil] ;
     haikeigazou.backgroundColor = [UIColor clearColor] ;
     haikeigazou.alpha = 0.5;
     [self.view insertSubview:haikeigazou atIndex:0] ;
     [self.view addSubview:haikeigazou] ;
     
     //キャンバスのインスタンスを生成します
-//    canvas = [[UIImageView alloc] initWithImage:nil] ;
     canvas.backgroundColor = [UIColor clearColor] ;
     canvas.alpha = 1.0;
     [self.view insertSubview:canvas atIndex:0] ;
@@ -111,39 +108,25 @@
   if(rgb == 0){
       
       rgb = 1 ; //ONになると消しゴムを使用するために変数rgbを1（白ペン）に切り替える
-      
-              eraserLabel.text = [NSString stringWithFormat:@"消しゴムON"] ;
-      
+      eraserLabel.text = [NSString stringWithFormat:@"消しゴムON"] ;
       [UIView beginAnimations:nil context:nil] ; //アニメーションの設定開始
-      
-      [UIView setAnimationDuration:2] ; //アニメーションは1秒間
-      
+      [UIView setAnimationDuration:2] ; //アニメーションは2秒間
       [UIView setAnimationDelay:0.25] ; //開始を0.２5秒送らせる
-      
       eraserLabel.center = CGPointMake(400, 273) ; // x座標が400, y座標が273のところにlabelを表示
-      
-      [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
-      
+//      [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
       [UIView commitAnimations] ; //アニメーション実行！！
-      
+
 
       
   }else {
       
       rgb = 0 ; //OFFになると変数rgbを元の0（黒ペン）に戻す
-      
       eraserLabel.text = [NSString stringWithFormat:@"消しゴムOFF"] ;
-      
       [UIView beginAnimations:nil context:nil] ; //アニメーションの設定開始
-      
-      [UIView setAnimationDuration:2] ; //アニメーションは1秒間
-      
+      [UIView setAnimationDuration:2] ; //アニメーションは2秒間
       [UIView setAnimationDelay:0.25] ; //開始を0.２5秒送らせる
-      
       eraserLabel.center = CGPointMake(-200, 273) ; // x座標が-200, y座標が273のところに画像を表示
-      
-      [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
-      
+//      [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
       [UIView commitAnimations] ; //アニメーション実行！！
       
   }
@@ -154,9 +137,6 @@
 
 //画面に指をタッチしたときの処理
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    
-    
     
 //    //タッチ開始座標を先ほど宣言したtouchPointという変数に入れる
     UITouch *touch = [touches anyObject] ;
@@ -406,6 +386,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 //    [slc addURL:[NSURL URLWithString:@""]];
 //    [delegate presentViewController:slc animated:YES completion:nil];
 //}
+
+/*---------------------------------------iOS8---------------------------------------------*/
+
+
+
+
+/*----------------------------------------iOS8-------------------------------------------*/
 
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

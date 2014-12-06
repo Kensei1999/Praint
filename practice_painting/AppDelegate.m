@@ -36,16 +36,16 @@
         storyBoardName = @"Storyboard-3.5Inch";
     }
  */
-    
+
     CGRect rect = [UIScreen mainScreen].bounds;
     if(rect.size.height == 480){
         storyBoardName = @"Storyboard-3.5Inch";
         NSLog(@"3.5");
     }else{
         storyBoardName = @"Main";
-        NSLog(@"3.5");
+        NSLog(@"4");
     }
-    
+ 
     
     
     // StoryBoardのインスタンス化
@@ -56,7 +56,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = mainViewController;
     [self.window makeKeyAndVisible];
+
     
+    Class class = NSClassFromString(@"UIAlertController");
+    if(class){
+        // iOS 8の時の処理
+        NSLog(@"iOS8");
+    }else{
+        // iOS 7の時の処理
+        NSLog(@"iOS7");
+    }
     
     
     
