@@ -161,15 +161,14 @@
             hideView.frame = HideFrame ;
             
             [UIView commitAnimations] ;
-            
-            
-        }
-            else {
-        
-                
+        }else {
             CGRect basketBottomFrame = hideView.frame ;
-            basketBottomFrame.origin.y = 510 ;
-        
+            CGRect r = [[UIScreen mainScreen] bounds];
+            if(r.size.height == 480){
+                basketBottomFrame.origin.y = 430 ;
+            }else{
+                basketBottomFrame.origin.y = 510 ;
+            }
             [UIView beginAnimations:nil context:nil] ;
             [UIView setAnimationDuration:0.25] ;
             [UIView setAnimationDelay:0.1] ;

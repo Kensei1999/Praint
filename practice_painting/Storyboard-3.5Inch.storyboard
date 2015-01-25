@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Start Table View Controller-->
@@ -17,11 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="木目（praint）.png" translatesAutoresizingMaskIntoConstraints="NO" id="NLJ-6G-A9A">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="木目（praint）.png" translatesAutoresizingMaskIntoConstraints="NO" id="NLJ-6G-A9A">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5LA-uc-wNw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5LA-uc-wNw">
                                 <rect key="frame" x="0.0" y="333" width="210" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="hfa-iC-WNE"/>
+                                    <constraint firstAttribute="width" constant="210" id="kFv-HF-AYt"/>
+                                </constraints>
                                 <state key="normal" image="スタートボタン.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -29,62 +34,22 @@
                                     <segue destination="Im3-u5-oOm" kind="modal" id="Dcc-ZK-D8D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKg-hv-cAy">
-                                <rect key="frame" x="7" y="245" width="196" height="63"/>
-                                <state key="normal" image="使い方ボタン.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vZg-SY-UJ0" kind="modal" id="xfY-dJ-znh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NLJ-6G-A9A" firstAttribute="top" secondItem="qVI-QS-jsF" secondAttribute="topMargin" id="243-D6-jso"/>
+                            <constraint firstItem="Kht-WP-Ipt" firstAttribute="top" secondItem="5LA-uc-wNw" secondAttribute="bottom" constant="79" id="7B4-uO-jZG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NLJ-6G-A9A" secondAttribute="trailing" constant="-16" id="NiD-lV-SGB"/>
+                            <constraint firstItem="NLJ-6G-A9A" firstAttribute="leading" secondItem="qVI-QS-jsF" secondAttribute="leadingMargin" constant="-16" id="jgl-pn-wPZ"/>
+                            <constraint firstItem="Kht-WP-Ipt" firstAttribute="top" secondItem="NLJ-6G-A9A" secondAttribute="bottom" id="rPu-3O-h05"/>
+                            <constraint firstItem="5LA-uc-wNw" firstAttribute="leading" secondItem="qVI-QS-jsF" secondAttribute="leadingMargin" constant="-16" id="xV1-wt-WqD"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ia5-WK-O3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="336" y="782"/>
-        </scene>
-        <!--Explain View Controller-->
-        <scene sceneID="qbh-R7-8KC">
-            <objects>
-                <viewController id="vZg-SY-UJ0" customClass="ExplainViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HAo-9S-PsN"/>
-                        <viewControllerLayoutGuide type="bottom" id="Gv0-Pl-slZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="p0d-NJ-nzh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="板目２（元）.png" translatesAutoresizingMaskIntoConstraints="NO" id="qmB-Ef-0hG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="実装中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeE-bD-ubF">
-                                <rect key="frame" x="106" y="261" width="109" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxr-Z1-efn">
-                                <rect key="frame" x="16" y="430" width="30" height="30"/>
-                                <state key="normal" title="戻る">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="back" destination="vZg-SY-UJ0" eventType="touchUpInside" id="9Hb-Cr-tBP"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qpp-d2-ycG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="157" y="-585"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="xYJ-PL-VnO">
@@ -149,7 +114,7 @@
                                         <rect key="frame" x="285" y="18" width="22" height="22"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="vZg-SY-UJ0" kind="modal" id="mSz-gX-qJ5"/>
+                                            <segue destination="RcT-xR-ami" kind="modal" id="b1M-15-azF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kw-zt-yU5">
@@ -191,6 +156,7 @@
         <!--Setting View Controller-->
         <scene sceneID="vCP-cW-bfh">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zlJ-nv-b9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RcT-xR-ami" customClass="SettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Gx-3f-AIc"/>
@@ -279,10 +245,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pob-Nw-QJO">
-                                <rect key="frame" x="20" y="163" width="60" height="30"/>
-                                <state key="normal" title="色を保存"/>
-                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3KP-R4-iRP">
                                 <rect key="frame" x="18" y="230" width="232" height="31"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -333,7 +295,6 @@
                         <outlet property="redlinelabel" destination="P7c-SO-wAJ" id="Y7u-6y-0nE"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zlJ-nv-b9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="534" y="-585"/>
         </scene>
@@ -346,7 +307,6 @@
         <image name="share.png" width="64" height="49"/>
         <image name="スタートボタン.png" width="255" height="83"/>
         <image name="ボタン用板.png" width="320" height="87"/>
-        <image name="使い方ボタン.png" width="255" height="83"/>
         <image name="木目（praint）.png" width="320" height="568"/>
         <image name="板目２（元）.png" width="320" height="568"/>
     </resources>
@@ -355,7 +315,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="mSz-gX-qJ5"/>
-    </inferredMetricsTieBreakers>
 </document>
