@@ -72,6 +72,36 @@
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     }
     
+    
+    //設定画面
+    futosaSlider.minimumValue = 0.0f ;
+    futosaSlider.maximumValue = 90.0f ;
+    
+    opacitySlider.minimumValue = 0.0f ;
+    opacitySlider.maximumValue = 1.0f ;
+    
+    redlineSlider.minimumValue = 0.0f ;
+    greenlineSlider.minimumValue = 0.0f ;
+    bluelineSlider.minimumValue = 0.0f ;
+    
+    redlineSlider.maximumValue = 1.0f ;
+    greenlineSlider.maximumValue = 1.0f ;
+    bluelineSlider.maximumValue = 1.0f ;
+    
+    redlinelabel.text = [NSString stringWithFormat:@"R:0.0"] ;
+    greenlinelabel.text = [NSString stringWithFormat:@"R:0.0"] ;
+    bluelinelabel.text = [NSString stringWithFormat:@"R:0.0"] ;
+    
+    futosaLabel.text = [NSString stringWithFormat:@"%f",futosaNumber] ;
+    
+    opacityLabel.text = [NSString stringWithFormat:@"%f",opacityNumber] ;
+    
+    futosaSlider.value = futosaNumber ;
+    redlineSlider.value = redlineNumber ;
+    greenlineSlider.value = greenlineNumber ;
+    bluelineSlider.value = bluelineNumber ;
+    opacitySlider.value = opacityNumber ;
+    
 }
 
 
@@ -350,14 +380,131 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
 -(IBAction)setting {
 
-    sendredlineNumber = redlineNumber ;
-    sendgreenlineNumber = greenlineNumber ;
-    sendbluelineNumber = bluelineNumber ;
-    sendfutosaNumber = futosaNumber ;
-    sendopacityNumber = opacityNumber ;
+//    sendredlineNumber = redlineNumber ;
+//    sendgreenlineNumber = greenlineNumber ;
+//    sendbluelineNumber = bluelineNumber ;
+//    sendfutosaNumber = futosaNumber ;
+//    sendopacityNumber = opacityNumber ;
+    
+    
 
     
 }
+/*-----設定------*/
+-(IBAction)changered {
+    
+    redlineNumber = redlineSlider.value;
+    
+    greenlineNumber = greenlineSlider.value;
+    
+    bluelineNumber = bluelineSlider.value;
+    
+    redlinelabel.text = [NSString stringWithFormat:@"R:%.2f",redlineSlider.value] ;
+    
+    UIGraphicsBeginImageContext(self.brushPreview.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.brushPreview.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIGraphicsBeginImageContext(self.brushPreview.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.brushPreview.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+}
+
+-(IBAction)changegreen {
+    
+    redlineNumber = redlineSlider.value;
+    
+    greenlineNumber = greenlineSlider.value;
+    
+    bluelineNumber = bluelineSlider.value;
+    
+    greenlinelabel.text = [NSString stringWithFormat:@"G:%.2f",greenlineSlider.value] ;
+    
+    UIGraphicsBeginImageContext(self.brushPreview.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.brushPreview.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+}
+
+-(IBAction)changeblue {
+    
+    redlineNumber = redlineSlider.value;
+    
+    greenlineNumber = greenlineSlider.value;
+    
+    bluelineNumber = bluelineSlider.value;
+    
+    bluelinelabel.text = [NSString stringWithFormat:@"B:%.2f",bluelineSlider.value] ;
+    
+    UIGraphicsBeginImageContext(self.brushPreview.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.brushPreview.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+}
+
+-(IBAction)changefutosa{
+    
+    futosaNumber = futosaSlider.value;
+    
+    futosaLabel.text = [NSString stringWithFormat:@"%.2f",futosaSlider.value] ;
+    
+    UIGraphicsBeginImageContext(self.brushPreview.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.brushPreview.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+}
+
+-(IBAction)changeopacity {
+    
+    
+    opacityNumber = opacitySlider.value;
+    
+    opacityLabel.text = [NSString stringWithFormat:@"%.1f",opacitySlider.value] ;
+    
+    UIGraphicsBeginImageContext(self.brushPreview.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.brushPreview.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+}
+
+/*-----設定-----*/
 
 
 #pragma mark - 自慢兼画像の保存

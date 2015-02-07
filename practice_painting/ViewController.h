@@ -48,6 +48,28 @@ int i ;
 
     
     IBOutlet UIView *hideView;
+    
+    IBOutlet UIView *settingView ;
+    
+    IBOutlet UISlider *redlineSlider ;
+    
+    IBOutlet UISlider *greenlineSlider ;
+    
+    IBOutlet UISlider *bluelineSlider ;
+    
+    IBOutlet UILabel *redlinelabel ;
+    
+    IBOutlet UILabel *greenlinelabel ;
+    
+    IBOutlet UILabel *bluelinelabel ;
+    
+    IBOutlet UISlider *futosaSlider ;
+    
+    IBOutlet UILabel *futosaLabel ;
+    
+    IBOutlet UISlider* opacitySlider ;
+    
+    IBOutlet UILabel *opacityLabel ;
 }
 
 
@@ -60,6 +82,9 @@ int i ;
 -(IBAction)setting ;
 
 -(IBAction)jiman:(id)sender ;
+
+@property (weak, nonatomic) IBOutlet UIImageView *brushPreview;
+
 
 
 
