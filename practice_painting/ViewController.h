@@ -44,6 +44,8 @@ int i ;
         
     int actionNum ;
     
+    int settingNum ;
+    
     BOOL mouseSwiped;
 
     

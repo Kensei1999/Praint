@@ -24,6 +24,8 @@
     
     actionNum = 0 ;
     
+    settingNum = 1 ;
+    
     //canvas復元
     NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"canvas"];
     canvas.image = [UIImage imageWithData:imageData];
@@ -379,13 +381,20 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 }
 
 -(IBAction)setting {
-
-//    sendredlineNumber = redlineNumber ;
-//    sendgreenlineNumber = greenlineNumber ;
-//    sendbluelineNumber = bluelineNumber ;
-//    sendfutosaNumber = futosaNumber ;
-//    sendopacityNumber = opacityNumber ;
     
+    if(settingNum==0){
+
+    [self.view bringSubviewToFront:canvas] ;
+
+    [self.view bringSubviewToFront:hideView] ;
+        
+    }else{
+        
+        [self.view bringSubviewToFront:settingView] ;
+
+        
+    }
+
     
 
     

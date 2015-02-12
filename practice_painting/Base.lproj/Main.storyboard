@@ -159,9 +159,10 @@
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="90" translatesAutoresizingMaskIntoConstraints="NO" id="8KW-Px-34s">
                                         <rect key="frame" x="8" y="178" width="232" height="31"/>
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="changefutosa" destination="Cc3-73-BVB" eventType="valueChanged" id="H8d-Ws-yeX"/>
+                                            <action selector="changefutosa" destination="vXZ-lx-hvc" eventType="valueChanged" id="qfe-pf-IBh"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="細い" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcj-Ea-1A1">
@@ -178,6 +179,7 @@
                                         <rect key="frame" x="8" y="129" width="232" height="31"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <action selector="changeopacity" destination="vXZ-lx-hvc" eventType="valueChanged" id="D9k-XC-2d3"/>
                                             <action selector="changeopacity" destination="Cc3-73-BVB" eventType="valueChanged" id="eAn-W0-3lf"/>
                                         </connections>
                                     </slider>
@@ -202,12 +204,14 @@
                                         <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="changered" destination="Cc3-73-BVB" eventType="valueChanged" id="4WY-7a-WBw"/>
+                                            <action selector="changered" destination="vXZ-lx-hvc" eventType="valueChanged" id="AFZ-W5-UnL"/>
                                         </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GYt-uv-wcF">
                                         <rect key="frame" x="122" y="53" width="118" height="31"/>
                                         <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <action selector="changegreen" destination="vXZ-lx-hvc" eventType="valueChanged" id="Dhh-2J-l01"/>
                                             <action selector="changegreen" destination="Cc3-73-BVB" eventType="valueChanged" id="xLu-wd-Gw9"/>
                                         </connections>
                                     </slider>
@@ -215,6 +219,7 @@
                                         <rect key="frame" x="122" y="91" width="118" height="31"/>
                                         <color key="tintColor" red="0.0" green="0.127460344" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <action selector="changeblue" destination="vXZ-lx-hvc" eventType="valueChanged" id="gcW-tK-5Cp"/>
                                             <action selector="changeblue" destination="Cc3-73-BVB" eventType="valueChanged" id="w9f-4W-U6N"/>
                                         </connections>
                                     </slider>
@@ -260,10 +265,22 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bluelineSlider" destination="utL-Mn-244" id="2Gg-fp-TCe"/>
+                        <outlet property="bluelinelabel" destination="5P4-ns-r7c" id="pHt-KI-78Y"/>
+                        <outlet property="brushPreview" destination="ui6-gi-7CN" id="gZy-vR-bHU"/>
                         <outlet property="canvas" destination="MAK-Ci-KBM" id="sQw-Ds-atO"/>
                         <outlet property="eraserLabel" destination="5yv-H6-rgc" id="m8Q-OC-MEU"/>
+                        <outlet property="futosaLabel" destination="z9B-uL-UgU" id="d83-mT-G70"/>
+                        <outlet property="futosaSlider" destination="8KW-Px-34s" id="fEj-6z-VKO"/>
+                        <outlet property="greenlineSlider" destination="GYt-uv-wcF" id="4gp-z9-anc"/>
+                        <outlet property="greenlinelabel" destination="5XJ-Pe-fan" id="cZ5-VI-fyh"/>
                         <outlet property="haikeigazou" destination="QrY-AU-xlj" id="Zip-DQ-GAz"/>
                         <outlet property="hideView" destination="BWp-Lz-4Us" id="B13-Kd-fi4"/>
+                        <outlet property="opacityLabel" destination="lYB-GM-Hji" id="eMa-do-mrg"/>
+                        <outlet property="opacitySlider" destination="4ky-nV-WSU" id="bs0-XH-3ah"/>
+                        <outlet property="redlineSlider" destination="rwB-nr-IG1" id="e8p-e9-H0g"/>
+                        <outlet property="redlinelabel" destination="kjs-XN-38N" id="2Ek-h9-ITi"/>
+                        <outlet property="settingView" destination="ZcJ-2e-Lmf" id="SR8-Ik-Laa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
