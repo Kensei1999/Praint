@@ -107,7 +107,6 @@
                                         </state>
                                         <connections>
                                             <action selector="setting" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sO7-8Q-ynn"/>
-                                            <segue destination="Cc3-73-BVB" kind="modal" id="kPD-3s-Aqv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tb6-Fo-g3V">

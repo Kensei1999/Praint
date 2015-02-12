@@ -47,11 +47,12 @@
     canvas.alpha = 1.0;
     [self.view insertSubview:canvas atIndex:0] ;
     [self.view addSubview:canvas];
-    
+    [self.view addSubview:settingView] ;
     [self.view addSubview:hideView] ;
     
     [self.view bringSubviewToFront:canvas] ;
-    [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
+    
+    [self.view bringSubviewToFront:hideView] ;    // hideView を最前面に移動
 
     
     rgb = 0 ; //OFFになると変数rgbを元の0（黒ペン）に戻す
