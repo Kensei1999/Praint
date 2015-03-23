@@ -30,7 +30,13 @@
     NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"canvas"];
     canvas.image = [UIImage imageWithData:imageData];
     
-    //
+    redlineNumber = [savered floatForKey:@"redlinenumber"];  // redlinenumberの内容をfloat型として取得
+    bluelineNumber = [saveblue floatForKey:@"bluelinenumber"];
+    greenlineNumber = [savegreen floatForKey:@"greenlinenumber"];
+    futosaNumber = [savefutosa floatForKey:@"futosanumber"];
+    opacityNumber = [saveopacity floatForKey:@"redlinenumber"];
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(myFunction)
                                                  name:UIApplicationWillTerminateNotification
@@ -108,13 +114,30 @@
 }
 
 
+
 -(void)myFunction{
     
     // NSUserDefaultsの取得
     savecanvas = [NSUserDefaults standardUserDefaults];
+    savered = [NSUserDefaults standardUserDefaults] ;
+    savegreen = [NSUserDefaults standardUserDefaults] ;
+    saveblue = [NSUserDefaults standardUserDefaults] ;
+    savefutosa = [NSUserDefaults standardUserDefaults] ;
+    saveopacity = [NSUserDefaults standardUserDefaults] ;
+    
     //canvas保存
     NSData *imageData = UIImagePNGRepresentation(canvas.image);
     [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:@"canvas"];
+    
+    [savered setFloat:redlineNumber forKey:@"redline"];  // float型のredlinenumberをredlineというキーで保存
+    [savegreen setFloat:greenlineNumber forKey:@"greenline"];
+    
+    [saveblue setFloat:bluelineNumber forKey:@"blueline"];
+    
+    [savefutosa setFloat:futosaNumber forKey:@"futosa"];
+    
+    [saveopacity setFloat:opacityNumber forKey:@"opacity"];
+    
     
 }
 

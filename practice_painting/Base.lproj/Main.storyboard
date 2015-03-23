@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jBV-ii-hX0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jBV-ii-hX0">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -62,19 +62,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QrY-AU-xlj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QrY-AU-xlj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="uv9-Kg-8e7"/>
-                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAK-Ci-KBM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAK-Ci-KBM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="5pf-z0-Sfl"/>
-                                </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWp-Lz-4Us">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BWp-Lz-4Us">
                                 <rect key="frame" x="0.0" y="510" width="320" height="58"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ボタン用板.png" translatesAutoresizingMaskIntoConstraints="NO" id="zor-as-9Ed">
@@ -134,21 +128,17 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="6wE-LJ-8Jv"/>
-                                    <constraint firstAttribute="height" constant="58" id="dgg-aK-bwK"/>
-                                </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="消しゴムOFF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yv-H6-rgc">
                                 <rect key="frame" x="-200" y="273" width="113" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Acu-8P-1jn">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="284" translatesAutoresizingMaskIntoConstraints="NO" id="Acu-8P-1jn">
                                 <rect key="frame" x="0.0" y="225" width="320" height="284"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="palette.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZcJ-2e-Lmf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="palette.png" translatesAutoresizingMaskIntoConstraints="NO" id="MCH-PW-diO">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="〜ペンの太さを変える〜" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwJ-qf-tfw">
@@ -253,15 +243,6 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="BWp-Lz-4Us" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="E1D-XC-2YH"/>
-                            <constraint firstItem="MAK-Ci-KBM" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="Hvm-i8-3hg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BWp-Lz-4Us" secondAttribute="trailing" constant="-16" id="XwY-NI-FqD"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MAK-Ci-KBM" secondAttribute="bottom" id="du1-9z-d6E"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="BWp-Lz-4Us" secondAttribute="bottom" id="enG-0r-beV"/>
-                            <constraint firstItem="QrY-AU-xlj" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="jsk-Hg-DlF"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="QrY-AU-xlj" secondAttribute="bottom" id="m54-0E-GWM"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bluelineSlider" destination="utL-Mn-244" id="2Gg-fp-TCe"/>
@@ -279,7 +260,6 @@
                         <outlet property="opacitySlider" destination="4ky-nV-WSU" id="bs0-XH-3ah"/>
                         <outlet property="redlineSlider" destination="rwB-nr-IG1" id="e8p-e9-H0g"/>
                         <outlet property="redlinelabel" destination="kjs-XN-38N" id="2Ek-h9-ITi"/>
-                        <outlet property="settingView" destination="ZcJ-2e-Lmf" id="SR8-Ik-Laa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

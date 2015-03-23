@@ -36,6 +36,16 @@ int i ;
     
     NSUserDefaults *savecanvas ;
     
+    NSUserDefaults *savered ;
+    
+    NSUserDefaults *savegreen ;
+
+    NSUserDefaults *saveblue ;
+    
+    NSUserDefaults *savefutosa ;
+    
+    NSUserDefaults *saveopacity ;
+
     IBOutlet UISwitch *eraser ;
     
     IBOutlet UILabel *eraserLabel ;

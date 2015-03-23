@@ -62,6 +62,8 @@
 		53DFA71A1A209BE100F3AFE8 /* PraintIcon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DFA7161A209BE100F3AFE8 /* PraintIcon_1024.png */; };
 		53FC324A19D57048000961C0 /* startTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FC324919D57048000961C0 /* startTableViewController.m */; };
 		53FC324C19D58133000961C0 /* Storyboard-3.5Inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FC324B19D58133000961C0 /* Storyboard-3.5Inch.storyboard */; };
+		53FFA5401ABFF4E6005E1A49 /* Storyboard-ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FFA53F1ABFF4E6005E1A49 /* Storyboard-ipad.storyboard */; };
+		53FFA5461AC00782005E1A49 /* round66.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FFA5451AC00782005E1A49 /* round66.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +141,8 @@
 		53FC324819D57048000961C0 /* startTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = startTableViewController.h; sourceTree = "<group>"; };
 		53FC324919D57048000961C0 /* startTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = startTableViewController.m; sourceTree = "<group>"; };
 		53FC324B19D58133000961C0 /* Storyboard-3.5Inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard-3.5Inch.storyboard"; sourceTree = "<group>"; };
+		53FFA53F1ABFF4E6005E1A49 /* Storyboard-ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard-ipad.storyboard"; sourceTree = "<group>"; };
+		53FFA5451AC00782005E1A49 /* round66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round66.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,7 @@
 				53382251191493EA00E7D2AE /* AppDelegate.h */,
 				53382252191493EA00E7D2AE /* AppDelegate.m */,
 				53FC324B19D58133000961C0 /* Storyboard-3.5Inch.storyboard */,
+				53FFA53F1ABFF4E6005E1A49 /* Storyboard-ipad.storyboard */,
 				53BDD3D31A8CF76D00CBA3D7 /* Main.storyboard */,
 				531BDCED1918EDAD00ABD7EB /* colorViewController.h */,
 				531BDCEE1918EDAD00ABD7EB /* colorViewController.m */,
@@ -255,6 +260,7 @@
 		5338EA6F1915D2B0005FE15C /* pic */ = {
 			isa = PBXGroup;
 			children = (
+				53FFA5451AC00782005E1A49 /* round66.png */,
 				53C778081A862F5D00378D7E /* palette.png */,
 				53DFA7131A209BE100F3AFE8 /* PraintIcon_58.png */,
 				53DFA7141A209BE100F3AFE8 /* PraintIcon_80.png */,
@@ -382,8 +388,10 @@
 				53DFA7191A209BE100F3AFE8 /* PraintIcon_120.png in Resources */,
 				533A75AE1918682F004DBAE9 /* スタートボタン.png in Resources */,
 				5338EA6B1915D2A4005FE15C /* new42.png in Resources */,
+				53FFA5461AC00782005E1A49 /* round66.png in Resources */,
 				53340B7D199A1D37009ADA7A /* 木目（praint）.png in Resources */,
 				53751A0D19E7F62B00D7AA54 /* icon_58.png in Resources */,
+				53FFA5401ABFF4E6005E1A49 /* Storyboard-ipad.storyboard in Resources */,
 				5338225B191493EA00E7D2AE /* Images.xcassets in Resources */,
 				5338EA6E1915D2A4005FE15C /* refresh21.png in Resources */,
 				5338EA661915D268005FE15C /* haguruma.png in Resources */,
