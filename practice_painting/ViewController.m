@@ -256,11 +256,36 @@
     //キャンバスにセットされている画像（UIImage）を用意
     [canvas.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
-    //線の描画開始座標をセットする
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
+    CGRect r = [[UIScreen mainScreen] bounds];
+    NSLog(@"大きさは...%f",r.size.height);
+    if(r.size.height == 480){
+        
+        //線の描画開始座標をセットする
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y-40);
+        
+        //線の描画終了座標をセットする
+        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y-40);
+        
+    }else if(r.size.height > 480){
+        
+        //線の描画開始座標をセットする
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
+        
+        //線の描画終了座標をセットする
+        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+        
+    }else if (r.size.height < 480){
+        
+        //線の描画開始座標をセットする
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
+        
+        //線の描画終了座標をセットする
+        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+
+        
+    }
     
-    //線の描画終了座標をセットする
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+    
     
     //線の角を丸くする
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -415,13 +440,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     }else{
         
         [self.view bringSubviewToFront:settingView] ;
-
-        
-    }
-
     
 
-    
+         }
 }
 /*-----設定------*/
 -(IBAction)changered {

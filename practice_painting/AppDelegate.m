@@ -54,7 +54,7 @@
         // iPad
         NSLog(@"iPad");
         
-        storyBoardName = @"Storyboard-3.5Inch";
+        storyBoardName = @"Storyboard-ipad";
         
     }
     
