@@ -260,6 +260,7 @@
                         <outlet property="opacitySlider" destination="4ky-nV-WSU" id="bs0-XH-3ah"/>
                         <outlet property="redlineSlider" destination="rwB-nr-IG1" id="e8p-e9-H0g"/>
                         <outlet property="redlinelabel" destination="kjs-XN-38N" id="2Ek-h9-ITi"/>
+                        <outlet property="settingView" destination="Acu-8P-1jn" id="mDN-db-wDh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

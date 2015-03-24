@@ -81,8 +81,11 @@
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     }
     
-    
     //設定画面
+    settingView.hidden = NO ;
+    
+    settingNum = 0 ;
+    
     futosaSlider.minimumValue = 0.0f ;
     futosaSlider.maximumValue = 90.0f ;
     
@@ -437,9 +440,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
     [self.view bringSubviewToFront:hideView] ;
         
+        settingView.hidden = YES ;
+        
+        settingNum = 1 ;
+        
     }else{
         
         [self.view bringSubviewToFront:settingView] ;
+        
+        settingView.hidden = NO ;
+        
+        settingNum = 0 ;
     
 
          }
