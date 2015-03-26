@@ -299,7 +299,6 @@
     
     CGRect r = [[UIScreen mainScreen] bounds];
 //    NSLog(@"大きさは...%f",r.size.height);
-        NSLog(@"透明度は...%f",opacityNumber) ;
     if(r.size.height == 480){
         
         //線の描画開始座標をセットする
