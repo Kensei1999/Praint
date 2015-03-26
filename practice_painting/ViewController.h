@@ -59,9 +59,7 @@
     int rgb ;//ペンの色
         
     int actionNum ;
-    
-    int settingNum ;
-    
+        
     BOOL mouseSwiped;
 
     IBOutlet UIButton *eraser ;
@@ -99,6 +97,8 @@
 -(IBAction)setting ;
 
 -(IBAction)jiman:(id)sender ;
+
+-(IBAction)info ;
 
 @property (weak, nonatomic) IBOutlet UIImageView *brushPreview ;
 @property (weak, nonatomic) IBOutlet UIImageView *eraserPreview ;

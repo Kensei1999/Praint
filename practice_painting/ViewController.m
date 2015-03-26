@@ -34,8 +34,6 @@
     
     actionNum = 0 ;
     
-    settingNum = 1 ;
-    
     //canvas復元
     NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"canvas"];
     canvas.image = [UIImage imageWithData:imageData];
@@ -90,8 +88,6 @@
     
     //設定画面
     settingView.hidden = YES ;
-    
-    settingNum = 0 ;
     
     futosaSlider.minimumValue = 0.0f ;
     futosaSlider.maximumValue = 90.0f ;
@@ -231,7 +227,6 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     settingView.hidden = YES ;
-    settingNum = 1 ;
     
 //    //タッチ開始座標を先ほど宣言したtouchPointという変数に入れる
     UITouch *touch = [touches anyObject] ;
@@ -289,7 +284,6 @@
     if(rgb == 0){
     
     settingView.hidden = YES ;
-    settingNum = 1 ;
     
     //現在のタッチ座標をcurrentPointという変数に入れる
     UITouch *touch = [touches anyObject];
@@ -382,7 +376,6 @@
     }else{                           //消しゴム
 //        
 //        settingView.hidden = YES ;
-//        settingNum = 1 ;
 //        
 //        //現在のタッチ座標をcurrentPointという変数に入れる
 //        UITouch *touch = [touches anyObject];
@@ -604,6 +597,12 @@
 
 }
 
+-(IBAction)info{
+    
+    [self.interstitial presentFromRootViewController:self];
+    
+}
+
 //なぞる画像を変更
 -(IBAction)changepic{
     
@@ -624,20 +623,12 @@
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
-    
-    
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage] ;
     NSLog(@"%f",image.size.height);
     NSLog(@"%f",image.size.width);
     
-    canvas.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-    canvas.center = CGPointMake(self.view.center.x, self.view.center.y);
     haikeigazou.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     haikeigazou.center = CGPointMake(self.view.center.x, self.view.center.y);
-    tempDrawImage.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-    tempDrawImage.center = CGPointMake(self.view.center.x, self.view.center.y);
-
-
     
     [haikeigazou setImage:image] ;
     
@@ -647,8 +638,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     canvas.backgroundColor = [UIColor clearColor] ;
     canvas.image = nil;
     
-    [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
-    [self.view bringSubviewToFront:haikeigazou] ;
+    [self.view bringSubviewToFront:haikeigazou];    // canvas を最前面に移動
+    [self.view bringSubviewToFront:canvas] ;
+    [self.view bringSubviewToFront:tempDrawImage] ;
     [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
     
     [self dismissViewControllerAnimated:YES completion:nil] ;
@@ -664,24 +656,22 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [self.view addSubview:settingView] ;
 
     
-    if(settingNum==0){
+    if(settingView.hidden == NO){
 
+        settingView.hidden = YES ;
+        
     [self.view bringSubviewToFront:tempDrawImage] ;
 
     [self.view bringSubviewToFront:hideView] ;
         
-        settingView.hidden = YES ;
         
-        settingNum = 1 ;
         
-    }else{
+    }else if (settingView.hidden == YES){
         
         [self.view bringSubviewToFront:settingView] ;
         
         settingView.hidden = NO ;
         
-        settingNum = 0 ;
-    
 
          }
 }
