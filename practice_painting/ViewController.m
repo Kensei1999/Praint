@@ -31,6 +31,7 @@
     
     [self createAndLoadInterstitial];
     
+    
     actionNum = 0 ;
     
     settingNum = 1 ;
@@ -71,8 +72,6 @@
     
     rgb = 0 ; //OFFになると変数rgbを元の0（黒ペン）に戻す
     
-    eraserLabel.text = [NSString stringWithFormat:@"消しゴムOFF"] ;
-    
     redlineNumber = 0.0f ;
     greenlineNumber = 0.0f ;
     bluelineNumber = 0.0f ;
@@ -90,7 +89,7 @@
     }
     
     //設定画面
-    settingView.hidden = NO ;
+    settingView.hidden = YES ;
     
     settingNum = 0 ;
     
@@ -108,19 +107,27 @@
     greenlineSlider.maximumValue = 1.0f ;
     bluelineSlider.maximumValue = 1.0f ;
     
-    redlinelabel.text = [NSString stringWithFormat:@"R:0.0"] ;
-    greenlinelabel.text = [NSString stringWithFormat:@"R:0.0"] ;
-    bluelinelabel.text = [NSString stringWithFormat:@"R:0.0"] ;
-    
-    futosaLabel.text = [NSString stringWithFormat:@"%f",futosaNumber] ;
-    
-    opacityLabel.text = [NSString stringWithFormat:@"%f",opacityNumber] ;
-    
     futosaSlider.value = futosaNumber ;
     redlineSlider.value = redlineNumber ;
     greenlineSlider.value = greenlineNumber ;
     bluelineSlider.value = bluelineNumber ;
     opacitySlider.value = opacityNumber ;
+    
+    redlinePercentage = redlineSlider.value/1.0f * 100 ;
+    greenlinePercentage = greenlineSlider.value/1.0f * 100 ;
+    bluelinePercentage = bluelineSlider.value/1.0f * 100 ;
+    futosaPercentage = futosaSlider.value/90.0f * 100 ;
+    opacityPercentage = opacitySlider.value/1.0f * 100 ;
+
+    redlinelabel.text = [NSString stringWithFormat:@"R:%.2f%%",redlinePercentage] ;
+    greenlinelabel.text = [NSString stringWithFormat:@"G:%.2f%%",greenlinePercentage] ;
+    bluelinelabel.text = [NSString stringWithFormat:@"B:%.2f%%",bluelinePercentage] ;
+    
+    futosaLabel.text = [NSString stringWithFormat:@"%.2f%%",futosaPercentage] ;
+    
+    opacityLabel.text = [NSString stringWithFormat:@"%.2f%",opacityPercentage] ;
+    
+
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -203,27 +210,17 @@
   if(rgb == 0){
       
       rgb = 1 ; //ONになると消しゴムを使用するために変数rgbを1（白ペン）に切り替える
-      eraserLabel.text = [NSString stringWithFormat:@"消しゴムON"] ;
-//      [UIView beginAnimations:nil context:nil] ; //アニメーションの設定開始
-//      [UIView setAnimationDuration:2] ; //アニメーションは2秒間
-//      [UIView setAnimationDelay:0.25] ; //開始を0.２5秒送らせる
-//      eraserLabel.center = CGPointMake(400, 273) ; // x座標が400, y座標が273のところにlabelを表示
-////      [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
-//      [UIView commitAnimations] ; //アニメーション実行！！
 
-
+      UIImage *img = [UIImage imageNamed:@"brush7.png"];
+      [eraser setImage:img forState:UIControlStateNormal];
       
   }else {
       
       rgb = 0 ; //OFFになると変数rgbを元の0（黒ペン）に戻す
-      eraserLabel.text = [NSString stringWithFormat:@"消しゴムOFF"] ;
-//      [UIView beginAnimations:nil context:nil] ; //アニメーションの設定開始
-//      [UIView setAnimationDuration:2] ; //アニメーションは2秒間
-//      [UIView setAnimationDelay:0.25] ; //開始を0.２5秒送らせる
-//      eraserLabel.center = CGPointMake(-200, 273) ; // x座標が-200, y座標が273のところに画像を表示
-////      [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
-//      [UIView commitAnimations] ; //アニメーション実行！！
       
+      UIImage *img = [UIImage imageNamed:@"eraser2.png"];
+      [eraser setImage:img forState:UIControlStateNormal];
+
   }
     
 }
@@ -308,6 +305,7 @@
     
     CGRect r = [[UIScreen mainScreen] bounds];
 //    NSLog(@"大きさは...%f",r.size.height);
+        NSLog(@"透明度は...%f",opacityNumber) ;
     if(r.size.height == 480){
         
         //線の描画開始座標をセットする
@@ -662,6 +660,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
 -(IBAction)setting {
     
+    
     [self.view addSubview:settingView] ;
 
     
@@ -695,24 +694,18 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     bluelineNumber = bluelineSlider.value;
     
-    redlinelabel.text = [NSString stringWithFormat:@"R:%.2f",redlineSlider.value] ;
+    redlinePercentage = redlineSlider.value/1.0f * 100 ;
+    greenlinePercentage = greenlineSlider.value/1.0f * 100 ;
+    bluelinePercentage = bluelineSlider.value/1.0f * 100 ;
     
-    UIGraphicsBeginImageContext(self.brushPreview.frame.size);
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),opacityNumber);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    self.brushPreview.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    redlinelabel.text = [NSString stringWithFormat:@"R:%.2f%%",redlinePercentage] ;
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
     CGContextSetLineWidth(UIGraphicsGetCurrentContext(),futosaNumber);
     CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     self.brushPreview.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -727,7 +720,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     bluelineNumber = bluelineSlider.value;
     
-    greenlinelabel.text = [NSString stringWithFormat:@"G:%.2f",greenlineSlider.value] ;
+    redlinePercentage = redlineSlider.value/1.0f * 100 ;
+    greenlinePercentage = greenlineSlider.value/1.0f * 100 ;
+    bluelinePercentage = bluelineSlider.value/1.0f * 100 ;
+    
+    greenlinelabel.text = [NSString stringWithFormat:@"G:%.2f%%",greenlinePercentage] ;
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -749,7 +746,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     bluelineNumber = bluelineSlider.value;
     
-    bluelinelabel.text = [NSString stringWithFormat:@"B:%.2f",bluelineSlider.value] ;
+    redlinePercentage = redlineSlider.value/1.0f * 100 ;
+    greenlinePercentage = greenlineSlider.value/1.0f * 100 ;
+    bluelinePercentage = bluelineSlider.value/1.0f * 100 ;
+    
+    bluelinelabel.text = [NSString stringWithFormat:@"B:%.2f%%",bluelinePercentage] ;
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -767,7 +768,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     futosaNumber = futosaSlider.value;
     
-    futosaLabel.text = [NSString stringWithFormat:@"%.2f",futosaSlider.value] ;
+    futosaPercentage = futosaSlider.value/90.0f * 100 ;
+    
+    futosaLabel.text = [NSString stringWithFormat:@"%.2f%%",futosaPercentage] ;
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -786,7 +789,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     opacityNumber = opacitySlider.value;
     
-    opacityLabel.text = [NSString stringWithFormat:@"%.1f",opacitySlider.value] ;
+    opacityPercentage = opacitySlider.value/1.0f * 100 ;
+    
+    opacityLabel.text = [NSString stringWithFormat:@"%.2f%%",opacityPercentage] ;
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -828,7 +833,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"する", nil];
     [resetactionSheet showInView:self.view];
-    
     
 }
 
@@ -922,7 +926,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                     
                 }];
                 
-                NSString *string = [NSString stringWithFormat:@"こんな絵が描けました！"];
+                NSString *string = [NSString stringWithFormat:@"こんな絵が描けました！\n \n#praint"];
                 
                 [controller setInitialText:string];
                 
@@ -994,7 +998,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                     
             }];
                 
-                NSString *string = [NSString stringWithFormat:@"こんな絵が描けました！"];
+                NSString *string = [NSString stringWithFormat:@"こんな絵が描けました！\n \n#praint"];
                 
                 [controller setInitialText:string];
                 

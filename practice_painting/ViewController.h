@@ -21,8 +21,15 @@
     float bluelineNumber ;
     float futosaNumber ;
     float opacityNumber ;
+    float eraseropacityNumber ;
     int i ;
-            
+    
+    float redlinePercentage ;
+    float greenlinePercentage ;
+    float bluelinePercentage ;
+    float futosaPercentage ;
+    float opacityPercentage ;
+
     UIImageView *canvas ;
     //お絵描きしていくキャンバス（画用紙）を準備します
     
@@ -48,10 +55,6 @@
     NSUserDefaults *savefutosa ;
     
     NSUserDefaults *saveopacity ;
-
-    IBOutlet UISwitch *eraser ;
-    
-    IBOutlet UILabel *eraserLabel ;
     
     int rgb ;//ペンの色
         
@@ -61,6 +64,7 @@
     
     BOOL mouseSwiped;
 
+    IBOutlet UIButton *eraser ;
     
     IBOutlet UIView *hideView;
     
@@ -92,13 +96,12 @@
 
 -(void)png ; //画像をpng形式にする
 
--(IBAction)eraser ;
-
 -(IBAction)setting ;
 
 -(IBAction)jiman:(id)sender ;
 
-@property (weak, nonatomic) IBOutlet UIImageView *brushPreview;
+@property (weak, nonatomic) IBOutlet UIImageView *brushPreview ;
+@property (weak, nonatomic) IBOutlet UIImageView *eraserPreview ;
 
 
 @end
