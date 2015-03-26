@@ -7,7 +7,6 @@
 //
 
 #import "colorViewController.h"
-#import "SettingViewController.h"
 
 @interface colorViewController ()
 

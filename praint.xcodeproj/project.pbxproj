@@ -24,7 +24,6 @@
 		5338226E191493EA00E7D2AE /* practice_paintingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5338226D191493EA00E7D2AE /* practice_paintingTests.m */; };
 		533822791914B8AA00E7D2AE /* ボタン用板.png in Resources */ = {isa = PBXBuildFile; fileRef = 533822771914B8AA00E7D2AE /* ボタン用板.png */; };
 		5338227A1914B8AA00E7D2AE /* 板目２（元）.png in Resources */ = {isa = PBXBuildFile; fileRef = 533822781914B8AA00E7D2AE /* 板目２（元）.png */; };
-		5338EA601915B887005FE15C /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5338EA5F1915B887005FE15C /* SettingViewController.m */; };
 		5338EA641915D268005FE15C /* eraser2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5338EA611915D268005FE15C /* eraser2.png */; };
 		5338EA651915D268005FE15C /* floppy13.png in Resources */ = {isa = PBXBuildFile; fileRef = 5338EA621915D268005FE15C /* floppy13.png */; };
 		5338EA661915D268005FE15C /* haguruma.png in Resources */ = {isa = PBXBuildFile; fileRef = 5338EA631915D268005FE15C /* haguruma.png */; };
@@ -49,8 +48,10 @@
 		53751A1019E7F62B00D7AA54 /* icon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 53751A0C19E7F62B00D7AA54 /* icon_1024.png */; };
 		5379CF6019A1C75D001031B5 /* arrow430.png in Resources */ = {isa = PBXBuildFile; fileRef = 5379CF5F19A1C75D001031B5 /* arrow430.png */; };
 		5379CF6219A1CB9F001031B5 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5379CF6119A1CB9F001031B5 /* Twitter.framework */; };
+		5382C9161AC236C1004F2CA6 /* palette_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5382C9151AC236C1004F2CA6 /* palette_2.png */; };
 		53B937B319A2F4C8000208C4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B937B219A2F4C8000208C4 /* Social.framework */; };
 		53BDD3D51A8CF76D00CBA3D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53BDD3D31A8CF76D00CBA3D7 /* Main.storyboard */; };
+		53C5B9781AC29D5D00CCD04F /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C5B9771AC29D5D00CCD04F /* GoogleMobileAds.framework */; };
 		53C778091A862F5D00378D7E /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = 53C778081A862F5D00378D7E /* palette.png */; };
 		53D17B1619CC489A006C86C6 /* black393.png in Resources */ = {isa = PBXBuildFile; fileRef = 53D17B1219CC489A006C86C6 /* black393.png */; };
 		53D17B1719CC489A006C86C6 /* eyedropper2.png in Resources */ = {isa = PBXBuildFile; fileRef = 53D17B1319CC489A006C86C6 /* eyedropper2.png */; };
@@ -64,6 +65,7 @@
 		53FC324C19D58133000961C0 /* Storyboard-3.5Inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FC324B19D58133000961C0 /* Storyboard-3.5Inch.storyboard */; };
 		53FFA5401ABFF4E6005E1A49 /* Storyboard-ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FFA53F1ABFF4E6005E1A49 /* Storyboard-ipad.storyboard */; };
 		53FFA5461AC00782005E1A49 /* round66.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FFA5451AC00782005E1A49 /* round66.png */; };
+		D0FA67447AB6C94915A63F30 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8123D7CD24F4289645983815 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C914BE1D8F190D657F6979E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		531BDCED1918EDAD00ABD7EB /* colorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorViewController.h; sourceTree = "<group>"; };
 		531BDCEE1918EDAD00ABD7EB /* colorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorViewController.m; sourceTree = "<group>"; };
 		53340B7C199A1D37009ADA7A /* 木目（praint）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "木目（praint）.png"; sourceTree = "<group>"; };
@@ -100,8 +103,6 @@
 		5338226D191493EA00E7D2AE /* practice_paintingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = practice_paintingTests.m; sourceTree = "<group>"; };
 		533822771914B8AA00E7D2AE /* ボタン用板.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ボタン用板.png"; sourceTree = "<group>"; };
 		533822781914B8AA00E7D2AE /* 板目２（元）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "板目２（元）.png"; sourceTree = "<group>"; };
-		5338EA5E1915B887005FE15C /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		5338EA5F1915B887005FE15C /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		5338EA611915D268005FE15C /* eraser2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser2.png; sourceTree = "<group>"; };
 		5338EA621915D268005FE15C /* floppy13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floppy13.png; sourceTree = "<group>"; };
 		5338EA631915D268005FE15C /* haguruma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haguruma.png; sourceTree = "<group>"; };
@@ -127,8 +128,10 @@
 		53751A0C19E7F62B00D7AA54 /* icon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_1024.png; sourceTree = "<group>"; };
 		5379CF5F19A1C75D001031B5 /* arrow430.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow430.png; sourceTree = "<group>"; };
 		5379CF6119A1CB9F001031B5 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		5382C9151AC236C1004F2CA6 /* palette_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette_2.png; sourceTree = "<group>"; };
 		53B937B219A2F4C8000208C4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		53BDD3D41A8CF76D00CBA3D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		53C5B9771AC29D5D00CCD04F /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		53C778081A862F5D00378D7E /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
 		53D17B1219CC489A006C86C6 /* black393.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black393.png; sourceTree = "<group>"; };
 		53D17B1319CC489A006C86C6 /* eyedropper2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eyedropper2.png; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 		53FC324B19D58133000961C0 /* Storyboard-3.5Inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard-3.5Inch.storyboard"; sourceTree = "<group>"; };
 		53FFA53F1ABFF4E6005E1A49 /* Storyboard-ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard-ipad.storyboard"; sourceTree = "<group>"; };
 		53FFA5451AC00782005E1A49 /* round66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round66.png; sourceTree = "<group>"; };
+		8123D7CD24F4289645983815 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE58216FC52EDBDD73E219E8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +160,8 @@
 				53382245191493EA00E7D2AE /* CoreGraphics.framework in Frameworks */,
 				53382247191493EA00E7D2AE /* UIKit.framework in Frameworks */,
 				53382243191493EA00E7D2AE /* Foundation.framework in Frameworks */,
+				53C5B9781AC29D5D00CCD04F /* GoogleMobileAds.framework in Frameworks */,
+				D0FA67447AB6C94915A63F30 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,10 +181,12 @@
 		53382236191493E900E7D2AE = {
 			isa = PBXGroup;
 			children = (
+				53C5B9771AC29D5D00CCD04F /* GoogleMobileAds.framework */,
 				53382248191493EA00E7D2AE /* practice_painting */,
 				53382267191493EA00E7D2AE /* practice_paintingTests */,
 				53382241191493EA00E7D2AE /* Frameworks */,
 				53382240191493EA00E7D2AE /* Products */,
+				CD1710B1D93FB627BF2D3E8E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,6 +208,7 @@
 				53382244191493EA00E7D2AE /* CoreGraphics.framework */,
 				53382246191493EA00E7D2AE /* UIKit.framework */,
 				53382261191493EA00E7D2AE /* XCTest.framework */,
+				8123D7CD24F4289645983815 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,8 +226,6 @@
 				531BDCEE1918EDAD00ABD7EB /* colorViewController.m */,
 				536A2F0F1917CC1200FBAEFE /* ExplainViewController.h */,
 				536A2F101917CC1200FBAEFE /* ExplainViewController.m */,
-				5338EA5E1915B887005FE15C /* SettingViewController.h */,
-				5338EA5F1915B887005FE15C /* SettingViewController.m */,
 				53FC324819D57048000961C0 /* startTableViewController.h */,
 				53FC324919D57048000961C0 /* startTableViewController.m */,
 				53382257191493EA00E7D2AE /* ViewController.h */,
@@ -260,6 +268,7 @@
 		5338EA6F1915D2B0005FE15C /* pic */ = {
 			isa = PBXGroup;
 			children = (
+				5382C9151AC236C1004F2CA6 /* palette_2.png */,
 				53FFA5451AC00782005E1A49 /* round66.png */,
 				53C778081A862F5D00378D7E /* palette.png */,
 				53DFA7131A209BE100F3AFE8 /* PraintIcon_58.png */,
@@ -299,6 +308,15 @@
 			name = pic;
 			sourceTree = "<group>";
 		};
+		CD1710B1D93FB627BF2D3E8E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE58216FC52EDBDD73E219E8 /* Pods.debug.xcconfig */,
+				2C914BE1D8F190D657F6979E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -306,9 +324,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53382271191493EA00E7D2AE /* Build configuration list for PBXNativeTarget "praint" */;
 			buildPhases = (
+				27778AC53C837965D70037BA /* Check Pods Manifest.lock */,
 				5338223B191493EA00E7D2AE /* Sources */,
 				5338223C191493EA00E7D2AE /* Frameworks */,
 				5338223D191493EA00E7D2AE /* Resources */,
+				E4E0098AC7A322AEE77E7D5D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -400,6 +420,7 @@
 				53BDD3D51A8CF76D00CBA3D7 /* Main.storyboard in Resources */,
 				5338EA651915D268005FE15C /* floppy13.png in Resources */,
 				5338EA731915D3E2005FE15C /* loading.png in Resources */,
+				5382C9161AC236C1004F2CA6 /* palette_2.png in Resources */,
 				5366F7D119175D6700E00101 /* hudeicon80.png in Resources */,
 				533A75AC19186561004DBAE9 /* 使い方ボタン.png in Resources */,
 				5338227A1914B8AA00E7D2AE /* 板目２（元）.png in Resources */,
@@ -431,6 +452,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27778AC53C837965D70037BA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E4E0098AC7A322AEE77E7D5D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5338223B191493EA00E7D2AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -442,7 +496,6 @@
 				531BDCEF1918EDAD00ABD7EB /* colorViewController.m in Sources */,
 				53382253191493EA00E7D2AE /* AppDelegate.m in Sources */,
 				5338224F191493EA00E7D2AE /* main.m in Sources */,
-				5338EA601915B887005FE15C /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,11 +617,16 @@
 		};
 		53382272191493EA00E7D2AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE58216FC52EDBDD73E219E8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "practice_painting/praint-Prefix.pch";
 				INFOPLIST_FILE = "practice_painting/praint-Info.plist";
@@ -580,11 +638,16 @@
 		};
 		53382273191493EA00E7D2AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C914BE1D8F190D657F6979E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "practice_painting/praint-Prefix.pch";
 				INFOPLIST_FILE = "practice_painting/praint-Info.plist";

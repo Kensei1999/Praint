@@ -6,20 +6,23 @@
 //  Copyright (c) 2014年 石井　建世. All rights reserved.
 //
 
-float sendredlineNumber ;
-float sendgreenlineNumber ;
-float sendbluelineNumber ;
-float sendfutosaNumber ;
-float sendopacityNumber ;
-int i ;
-
 
 #import <UIKit/UIKit.h>
 #import <Twitter/Twitter.h>
 #import <Social/Social.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
+#import "GoogleMobileAds/GADInterstitial.h"
+@import GoogleMobileAds ;
 
-@interface ViewController : UIViewController {
+@interface ViewController : UIViewController<GADInterstitialDelegate> {
     
+    float redlineNumber ;
+    float greenlineNumber ;
+    float bluelineNumber ;
+    float futosaNumber ;
+    float opacityNumber ;
+    int i ;
+            
     UIImageView *canvas ;
     //お絵描きしていくキャンバス（画用紙）を準備します
     
@@ -96,8 +99,6 @@ int i ;
 -(IBAction)jiman:(id)sender ;
 
 @property (weak, nonatomic) IBOutlet UIImageView *brushPreview;
-
-
 
 
 @end

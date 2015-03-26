@@ -7,20 +7,29 @@
 //
 
 #import "ViewController.h"
-#import "SettingViewController.h"
 
-@interface ViewController ()
-<UIActionSheetDelegate>
+@import GoogleMobileAds ;
+
+@interface ViewController ()<UIActionSheetDelegate,GADInterstitialDelegate, UIAlertViewDelegate>
+
+@property(nonatomic, strong) GADInterstitial *interstitial;
+
 
 @end
 
-@implementation ViewController
+@implementation ViewController{
+
+    UIImageView *tempDrawImage;
+    CGPoint currentPoint;
+    
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    [self createAndLoadInterstitial];
     
     actionNum = 0 ;
     
@@ -30,11 +39,11 @@
     NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"canvas"];
     canvas.image = [UIImage imageWithData:imageData];
     
-    redlineNumber = [savered floatForKey:@"redlinenumber"];  // redlinenumberの内容をfloat型として取得
-    bluelineNumber = [saveblue floatForKey:@"bluelinenumber"];
-    greenlineNumber = [savegreen floatForKey:@"greenlinenumber"];
-    futosaNumber = [savefutosa floatForKey:@"futosanumber"];
-    opacityNumber = [saveopacity floatForKey:@"redlinenumber"];
+    redlineNumber = [savered floatForKey:@"redlineNumber"];  // redlineNumberの内容をfloat型として取得
+    bluelineNumber = [saveblue floatForKey:@"bluelineNumber"];
+    greenlineNumber = [savegreen floatForKey:@"greenlineNumber"];
+    futosaNumber = [savefutosa floatForKey:@"futosaNumber"];
+    opacityNumber = [saveopacity floatForKey:@"redlineNumber"];
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -53,7 +62,6 @@
     canvas.alpha = 1.0;
     [self.view insertSubview:canvas atIndex:0] ;
     [self.view addSubview:canvas];
-    [self.view addSubview:settingView] ;
     [self.view addSubview:hideView] ;
     
     [self.view bringSubviewToFront:canvas] ;
@@ -114,9 +122,37 @@
     bluelineSlider.value = bluelineNumber ;
     opacitySlider.value = opacityNumber ;
     
+    UIGraphicsBeginImageContext(self.brushPreview.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),futosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.brushPreview.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //描画用tempImageView
+    
+    tempDrawImage = [[UIImageView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:tempDrawImage];
+    
 }
 
+- (void)createAndLoadInterstitial {
+    self.interstitial = [[GADInterstitial alloc] init];
+    self.interstitial.adUnitID = @"ca-app-pub-9211047756234595/4443203664";
+    self.interstitial.delegate = self;
+    
+    GADRequest *request = [GADRequest request];
+    
+    [self.interstitial loadRequest:request];
+}
 
+- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
+    NSLog(@"interstitialDidDismissScreen");
+    [self createAndLoadInterstitial];
+}
 
 -(void)myFunction{
     
@@ -132,7 +168,7 @@
     NSData *imageData = UIImagePNGRepresentation(canvas.image);
     [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:@"canvas"];
     
-    [savered setFloat:redlineNumber forKey:@"redline"];  // float型のredlinenumberをredlineというキーで保存
+    [savered setFloat:redlineNumber forKey:@"redline"];  // float型のredlineNumberをredlineというキーで保存
     [savegreen setFloat:greenlineNumber forKey:@"greenline"];
     
     [saveblue setFloat:bluelineNumber forKey:@"blueline"];
@@ -168,12 +204,12 @@
       
       rgb = 1 ; //ONになると消しゴムを使用するために変数rgbを1（白ペン）に切り替える
       eraserLabel.text = [NSString stringWithFormat:@"消しゴムON"] ;
-      [UIView beginAnimations:nil context:nil] ; //アニメーションの設定開始
-      [UIView setAnimationDuration:2] ; //アニメーションは2秒間
-      [UIView setAnimationDelay:0.25] ; //開始を0.２5秒送らせる
-      eraserLabel.center = CGPointMake(400, 273) ; // x座標が400, y座標が273のところにlabelを表示
-//      [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
-      [UIView commitAnimations] ; //アニメーション実行！！
+//      [UIView beginAnimations:nil context:nil] ; //アニメーションの設定開始
+//      [UIView setAnimationDuration:2] ; //アニメーションは2秒間
+//      [UIView setAnimationDelay:0.25] ; //開始を0.２5秒送らせる
+//      eraserLabel.center = CGPointMake(400, 273) ; // x座標が400, y座標が273のところにlabelを表示
+////      [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
+//      [UIView commitAnimations] ; //アニメーション実行！！
 
 
       
@@ -181,12 +217,12 @@
       
       rgb = 0 ; //OFFになると変数rgbを元の0（黒ペン）に戻す
       eraserLabel.text = [NSString stringWithFormat:@"消しゴムOFF"] ;
-      [UIView beginAnimations:nil context:nil] ; //アニメーションの設定開始
-      [UIView setAnimationDuration:2] ; //アニメーションは2秒間
-      [UIView setAnimationDelay:0.25] ; //開始を0.２5秒送らせる
-      eraserLabel.center = CGPointMake(-200, 273) ; // x座標が-200, y座標が273のところに画像を表示
-//      [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
-      [UIView commitAnimations] ; //アニメーション実行！！
+//      [UIView beginAnimations:nil context:nil] ; //アニメーションの設定開始
+//      [UIView setAnimationDuration:2] ; //アニメーションは2秒間
+//      [UIView setAnimationDelay:0.25] ; //開始を0.２5秒送らせる
+//      eraserLabel.center = CGPointMake(-200, 273) ; // x座標が-200, y座標が273のところに画像を表示
+////      [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
+//      [UIView commitAnimations] ; //アニメーション実行！！
       
   }
     
@@ -197,9 +233,14 @@
 //画面に指をタッチしたときの処理
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
+    settingView.hidden = YES ;
+    settingNum = 1 ;
+    
 //    //タッチ開始座標を先ほど宣言したtouchPointという変数に入れる
     UITouch *touch = [touches anyObject] ;
     touchPoint = [touch locationInView:canvas] ;
+    
+    mouseSwiped = NO;
     
     //メニューを隠す
     
@@ -242,25 +283,31 @@
         }
     
     }
-
     
 }
 
 //画面に指がタッチされた状態で動かしているときの処理
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
+    if(rgb == 0){
+    
+    settingView.hidden = YES ;
+    settingNum = 1 ;
+    
     //現在のタッチ座標をcurrentPointという変数に入れる
     UITouch *touch = [touches anyObject];
-    CGPoint currentPoint = [touch locationInView:canvas];
+    currentPoint = [touch locationInView:canvas];
+    
+    mouseSwiped = YES;
     
     //お絵描きできる範囲をcanvasの大きさで生成
     UIGraphicsBeginImageContext(self.view.frame.size);
     
     //キャンバスにセットされている画像（UIImage）を用意
-    [canvas.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [tempDrawImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     CGRect r = [[UIScreen mainScreen] bounds];
-    NSLog(@"大きさは...%f",r.size.height);
+//    NSLog(@"大きさは...%f",r.size.height);
     if(r.size.height == 480){
         
         //線の描画開始座標をセットする
@@ -288,8 +335,6 @@
         
     }
     
-    
-    
     //線の角を丸くする
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
     
@@ -297,29 +342,28 @@
     CGContextSetLineWidth(UIGraphicsGetCurrentContext(), futosaNumber );
     
     //色の設定
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, 1.0);
     CGContextSetBlendMode(UIGraphicsGetCurrentContext(),kCGBlendModeNormal);
     
     //線の色を指定（RGBというRed、Green、Blue、の３色の加減で様々な色を表現する）
          if(rgb == 0){
-            CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber) ;
+            CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, 1.0) ;
         }else {
     
             CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear) ;
-    
-    
-            
         }
     
     //描画の開始〜終了まで線を引く
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     
     //描画領域を画像（UIImage）としてcanvasにセット
-    canvas.image = UIGraphicsGetImageFromCurrentImageContext();
+    tempDrawImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    [tempDrawImage setAlpha:opacityNumber];
     
     //描画領域のクリア
-    UIGraphicsEndImageContext();
+   UIGraphicsEndImageContext();
     
+
     //現在のタッチ座標を次の開始座標にバトンタッチ（受け渡す）！！
     touchPoint = currentPoint;
     
@@ -337,7 +381,188 @@
     
     i = 1 ;
     
+    }else{                           //消しゴム
+//        
+//        settingView.hidden = YES ;
+//        settingNum = 1 ;
+//        
+//        //現在のタッチ座標をcurrentPointという変数に入れる
+//        UITouch *touch = [touches anyObject];
+//        currentPoint = [touch locationInView:canvas];
+//        
+//        mouseSwiped = YES;
+//        
+//        //お絵描きできる範囲をcanvasの大きさで生成
+//        UIGraphicsBeginImageContext(self.view.frame.size);
+//        
+//        //キャンバスにセットされている画像（UIImage）を用意
+//        [canvas.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+//        
+//        CGRect r = [[UIScreen mainScreen] bounds];
+//        //    NSLog(@"大きさは...%f",r.size.height);
+//        if(r.size.height == 480){
+//            
+//            //線の描画開始座標をセットする
+//            CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y-40);
+//            
+//            //線の描画終了座標をセットする
+//            CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y-40);
+//            
+//        }else if(r.size.height > 480){
+//            
+//            //線の描画開始座標をセットする
+//            CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
+//            
+//            //線の描画終了座標をセットする
+//            CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+//            
+//        }else if (r.size.height < 480){
+//            
+//            //線の描画開始座標をセットする
+//            CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
+//            
+//            //線の描画終了座標をセットする
+//            CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+//            
+//            
+//        }
+//        
+//        //線の角を丸くする
+//        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+//        
+//        //太さの設定
+//        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), futosaNumber );
+//        
+//        //色の設定
+//        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, 1.0);
+//        CGContextSetBlendMode(UIGraphicsGetCurrentContext(),kCGBlendModeNormal);
+//        
+//        //線の色を指定（RGBというRed、Green、Blue、の３色の加減で様々な色を表現する）
+//        if(rgb == 0){
+//            CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 1.0, 1.0, 1.0, 0.0) ;
+//        }else {
+//            
+//            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear) ;
+//        }
+//        
+//        //描画の開始〜終了まで線を引く
+//        CGContextStrokePath(UIGraphicsGetCurrentContext());
+//        
+//        //描画領域を画像（UIImage）としてcanvasにセット
+//        canvas.image = UIGraphicsGetImageFromCurrentImageContext();
+//        
+//        //描画領域のクリア
+//        UIGraphicsEndImageContext();
+//        
+//        
+//        //現在のタッチ座標を次の開始座標にバトンタッチ（受け渡す）！！
+//        touchPoint = currentPoint;
+//        
+//        CGRect HideFrame = hideView.frame ;
+//        HideFrame.origin.y = self.view.bounds.size.height ;
+//        
+//        [UIView beginAnimations:nil context:nil] ;
+//        [UIView setAnimationDuration:0.25] ;
+//        [UIView setAnimationDelay:0.1] ;
+//        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
+//        
+//        hideView.frame = HideFrame ;
+//        
+//        [UIView commitAnimations] ;
+//        
+//        i = 1 ;
+//
+        
+        //現在のタッチ座標をcurrentPointという変数に入れる
+        UITouch *touch = [touches anyObject];
+        CGPoint currentPoint = [touch locationInView:canvas];
+        
+        //お絵描きできる範囲をcanvasの大きさで生成
+        UIGraphicsBeginImageContext(self.view.frame.size);
+        
+        //キャンバスにセットされている画像（UIImage）を用意
+        [canvas.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        
+        //線の描画開始座標をセットする
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
+        
+        //線の描画終了座標をセットする
+        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+        
+        //線の角を丸くする
+        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+        
+        //太さの設定
+        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), futosaNumber );
+        
+        //色の設定
+        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
+        CGContextSetBlendMode(UIGraphicsGetCurrentContext(),kCGBlendModeNormal);
+        
+        //線の色を指定（RGBというRed、Green、Blue、の３色の加減で様々な色を表現する）
+        if(rgb == 0){
+            CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber) ;
+        }else {
+            
+            CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeClear) ;
+            
+            
+            
+        }
+        
+        //描画の開始〜終了まで線を引く
+        CGContextStrokePath(UIGraphicsGetCurrentContext());
+        
+        //描画領域を画像（UIImage）としてcanvasにセット
+        canvas.image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        //描画領域のクリア
+        UIGraphicsEndImageContext();
+        
+        //現在のタッチ座標を次の開始座標にバトンタッチ（受け渡す）！！
+        touchPoint = currentPoint;
+        
+        CGRect HideFrame = hideView.frame ;
+        HideFrame.origin.y = self.view.bounds.size.height ;
+        
+        [UIView beginAnimations:nil context:nil] ;
+        [UIView setAnimationDuration:0.25] ;
+        [UIView setAnimationDelay:0.1] ;
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut] ;
+        
+        hideView.frame = HideFrame ;
+        
+        [UIView commitAnimations] ;
+        
+        i = 1 ;
+        
+    }
 }
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+
+    if (!mouseSwiped) {
+        UIGraphicsBeginImageContext(self.view.frame.size);
+        [tempDrawImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+        CGContextStrokePath(UIGraphicsGetCurrentContext());
+        CGContextFlush(UIGraphicsGetCurrentContext());
+        tempDrawImage.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    UIGraphicsBeginImageContext(canvas.frame.size);
+    [canvas.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:1.0];
+    [tempDrawImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:opacityNumber];
+    canvas.image = UIGraphicsGetImageFromCurrentImageContext();
+    tempDrawImage.image = nil;
+    UIGraphicsEndImageContext();
+}
+
+
 
 -(void)png {
     
@@ -367,6 +592,7 @@
 - (void)onCompleteCapture:(UIImage *)screenImage
  didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
+    
     NSString *message = @"画像を保存しました";
     if (error) message = @"画像の保存に失敗しました";
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @""
@@ -374,12 +600,11 @@
                                                    delegate: nil
                                           cancelButtonTitle: @"OK"
                                           otherButtonTitles: nil];
+    
     [alert show];
     haikeigazou.alpha = 0.5;
 
 }
-
-
 
 //なぞる画像を変更
 -(IBAction)changepic{
@@ -388,10 +613,12 @@
     [ipc setSourceType:UIImagePickerControllerSourceTypePhotoLibrary] ;
     [ipc setDelegate:self] ;
     [ipc setAllowsEditing:YES] ;
+    ipc.allowsEditing = NO;
     [self presentViewController:ipc animated:YES completion:nil] ;
     
-    [self.view bringSubviewToFront:canvas] ;
+    [self.view bringSubviewToFront:tempDrawImage] ;
     [self.view bringSubviewToFront:hideView];
+    
     
 }
 
@@ -399,7 +626,21 @@
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
-    UIImage * image = [info objectForKey:UIImagePickerControllerEditedImage] ;
+    
+    
+    UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage] ;
+    NSLog(@"%f",image.size.height);
+    NSLog(@"%f",image.size.width);
+    
+    canvas.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    canvas.center = CGPointMake(self.view.center.x, self.view.center.y);
+    haikeigazou.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    haikeigazou.center = CGPointMake(self.view.center.x, self.view.center.y);
+    tempDrawImage.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    tempDrawImage.center = CGPointMake(self.view.center.x, self.view.center.y);
+
+
+    
     [haikeigazou setImage:image] ;
     
 //    [haikeigazou setImage:[info objectForKey:UIImagePickerControllerEditedImage]] ;
@@ -409,34 +650,24 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     canvas.image = nil;
     
     [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
-    
+    [self.view bringSubviewToFront:haikeigazou] ;
     [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
     
     [self dismissViewControllerAnimated:YES completion:nil] ;
+    
+    [self.interstitial presentFromRootViewController:self];
 }
 
-//真っ白に戻す
-- (IBAction)reset:(id)sender {
-    
-    actionNum = 0 ;
-    
-    
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"全消し"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"しない"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"する", nil];
-    [actionSheet showInView:canvas];
-//    [actionSheet showInView:toumeicanvas] ;
-    
-    
-}
+
 
 -(IBAction)setting {
     
+    [self.view addSubview:settingView] ;
+
+    
     if(settingNum==0){
 
-    [self.view bringSubviewToFront:canvas] ;
+    [self.view bringSubviewToFront:tempDrawImage] ;
 
     [self.view bringSubviewToFront:hideView] ;
         
@@ -468,8 +699,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),opacityNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
     CGContextStrokePath(UIGraphicsGetCurrentContext());
@@ -478,8 +709,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),futosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
     CGContextStrokePath(UIGraphicsGetCurrentContext());
@@ -500,8 +731,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),futosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
     CGContextStrokePath(UIGraphicsGetCurrentContext());
@@ -522,8 +753,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),futosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
     CGContextStrokePath(UIGraphicsGetCurrentContext());
@@ -540,8 +771,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),futosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
     CGContextStrokePath(UIGraphicsGetCurrentContext());
@@ -559,8 +790,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     UIGraphicsBeginImageContext(self.brushPreview.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),sendfutosaNumber);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), sendredlineNumber, sendgreenlineNumber, sendbluelineNumber, sendopacityNumber);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(),futosaNumber);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), redlineNumber, greenlineNumber, bluelineNumber, opacityNumber);
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 45, 45);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), 45, 45);
     CGContextStrokePath(UIGraphicsGetCurrentContext());
@@ -578,80 +809,58 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     actionNum = 1 ;
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@""
+    UIActionSheet *jimanactionSheet = [[UIActionSheet alloc] initWithTitle:@"自慢する"
                                                              delegate:self
                                                     cancelButtonTitle:@"キャンセル"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"カメラロールに保存する", @"ツイッターで自慢する",@"facebookで自慢する",@"lineで自慢する", nil];
-    [actionSheet showInView:self.view];
+    [jimanactionSheet showInView:self.view];
 }
 
+//真っ白に戻す
+- (IBAction)reset:(id)sender {
+    
+    actionNum = 0 ;
+    
+    UIActionSheet *resetactionSheet = [[UIActionSheet alloc] initWithTitle:@"全消し"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"しない"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"する", nil];
+    [resetactionSheet showInView:self.view];
+    
+    
+}
 
-//-(void)postToTwitter:(id)delegate text:(NSString *)text imageName:(NSString *)imageName url:(NSString *)url
-//{
-////    UIImage *tweet =canvas ;
-//    tweetpic = canvas.image ;
-//    SLComposeViewController *slc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-//    [slc setInitialText:@"こんな絵が描けました！"];
-//    [slc addImage:[UIImage imageNamed:tweetpic]];
-//    [slc addURL:[NSURL URLWithString:@""]];
-//    [delegate presentViewController:slc animated:YES completion:nil];
-//}
-
-/*---------------------------------------iOS8---------------------------------------------*/
-
-
-
-
-/*----------------------------------------iOS8-------------------------------------------*/
-
-
+//アクションシート内容
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 
     if (actionNum == 1){
     
-        
-        
         if(buttonIndex == 0) {//画像保存
             
-            
-            
             [self png] ;
-            
-            
-            
-            [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
-            
-            
-            
+
+            [self.view bringSubviewToFront:tempDrawImage];    // tempDrawImage を最前面に移動
+
             haikeigazou.alpha = 0.0;
             
             hideView.alpha = 0.0 ;
-            
-            
-            
+
             //範囲
             
-            CGRect rect = CGRectMake(0, 0, 320, 568) ;
-            
-            
-            
+            CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ;
+
             UIGraphicsBeginImageContext(rect.size) ;
-            
-            
-            
+
             [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
             
             UIImage *capture = UIGraphicsGetImageFromCurrentImageContext() ;
             
-            
-            
             UIGraphicsEndImageContext() ;
             
             SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
-            
-            
             
             //キャプチャした画像の保存
             
@@ -659,35 +868,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
             
             UIGraphicsEndImageContext() ;
             
-            
-            
             [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
-            
-            
-            
+
             haikeigazou.alpha = 0.5;
             
             hideView.alpha = 1.0 ;
             
-            
-            
-            
-            
-            
-            
-            
-            
         }else if (buttonIndex == 1){//ツイートをする
-            
-            
-            
-            
             
             [self png] ;
             
-            [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
-            
-            
+            [self.view bringSubviewToFront:tempDrawImage];    // tempDrawImage を最前面に移動
             
             haikeigazou.alpha = 0.0;
             
@@ -699,53 +890,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
             
             UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
             
-            
-            
             [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
             
             UIImage *twiImg = UIGraphicsGetImageFromCurrentImageContext() ;
-            
-            
-            
-            
-            
-            /*
              
-             
-             
-             //グラフィックスコンテキスト取得
-             
-             CGContextRef context = UIGraphicsGetCurrentContext();
-             
-             
-             
-             //コンテキストの位置の切り取り開始位置に合わせる
-             
-             CGPoint point = canvas.frame.origin;
-             
-             CGAffineTransform affineMoveLeftTop = CGAffineTransformMakeTranslation(
-             
-             -(int)point.x,
-             
-             -(int)point.y);
-             
-             CGContextConcatCTM(context, affineMoveLeftTop);
-             
-             
-             
-             //Viewから切り取る
-             
-             UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-             
-             */
-            
-            
-            
             UIGraphicsEndImageContext() ;
             
             SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
-            
-            
             
             [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
             
@@ -753,26 +904,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
             
             hideView.alpha = 1.0 ;
             
-            
-            
-            
-            
-            //        tweetpic = canvas.image ;
-            
-            //        UIImage *img = [UIImage imageNamed:@"スタートボタン.png"];
-            
-            
-            
-            //        [self postToTwitter:self text:@"こんな絵が描けました！" imageName:tweetpic url:@""] ;
-            
-            
             NSString *serviceType = SLServiceTypeTwitter;
             
             if ([SLComposeViewController isAvailableForServiceType:serviceType]) {
                 
                 SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:serviceType];
-                
-                
                 
                 [controller setCompletionHandler:^(SLComposeViewControllerResult result) {
                     
@@ -785,10 +921,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                     }
                     
                 }];
-                
-                
-                
-                
                 
                 NSString *string = [NSString stringWithFormat:@"こんな絵が描けました！"];
                 
@@ -806,19 +938,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                 
             }
             
-            
-            
-            
-            
-            
-            
         }else if (buttonIndex == 2){//facebookに投稿
             
             
             
             [self png] ;
             
-            [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
+            [self.view bringSubviewToFront:tempDrawImage];    // tempDrawImage を最前面に移動
             
             
             
@@ -843,25 +969,19 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
             UIGraphicsEndImageContext() ;
             
             SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
-            
-            
-            
+
             [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
             
             haikeigazou.alpha = 0.5;
             
             hideView.alpha = 1.0 ;
-            
-            
-            
+
             NSString *serviceType = SLServiceTypeFacebook;
             
             if ([SLComposeViewController isAvailableForServiceType:serviceType]) {
                 
                 SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:serviceType];
-                
-                
-                
+
                 [controller setCompletionHandler:^(SLComposeViewControllerResult result) {
                     
                     if (result == SLComposeViewControllerResultDone) {
@@ -872,20 +992,14 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                         
                     }
                     
-                }];
-                
-                
-                
-                
+            }];
                 
                 NSString *string = [NSString stringWithFormat:@"こんな絵が描けました！"];
                 
                 [controller setInitialText:string];
                 
                 [controller addImage:FaceImg];
-                
-                
-                
+
                 [self presentViewController:controller
                  
                                    animated:NO
@@ -895,15 +1009,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
             }
             
         }else if (buttonIndex == 3){//lineに投稿
-                
-                
-                
+ 
                 [self png] ;
                 
-                [self.view bringSubviewToFront:canvas];    // canvas を最前面に移動
-                
-                
-                
+                [self.view bringSubviewToFront:tempDrawImage];    // tempDrawImage を最前面に移動
+            
                 haikeigazou.alpha = 0.0;
                 
                 hideView.alpha = 0.0 ;
@@ -913,34 +1023,20 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                 CGSize size = CGSizeMake(canvas.frame.size.width ,canvas.frame.size.height);
                 
                 UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
-                
-                
-                
+            
                 [self.view.layer renderInContext:UIGraphicsGetCurrentContext()] ;
                 
                 UIImage *lineImg = UIGraphicsGetImageFromCurrentImageContext() ;
-            
-                
                 
                 UIGraphicsEndImageContext() ;
                 
                 SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
-                
-                
-                
+            
                 [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
                 
                 haikeigazou.alpha = 0.5;
                 
                 hideView.alpha = 1.0 ;
-                
-                
-                
-                
-                
-                
-                
-                
                 
                 UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
                 
@@ -950,10 +1046,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
                 
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:LineUrlString]];
         }
-    }
-  
-    if (actionNum == 0) {
-        canvas.image = nil;
+    }else if (actionNum == 0) {
+        if(buttonIndex == 0){
+            canvas.image = nil;
+
+        }
     }
 
 }
