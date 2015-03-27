@@ -290,7 +290,7 @@
     currentPoint = [touch locationInView:canvas];
     
     mouseSwiped = YES;
-    
+        
     //お絵描きできる範囲をcanvasの大きさで生成
     UIGraphicsBeginImageContext(self.view.frame.size);
     
@@ -299,32 +299,96 @@
     
     CGRect r = [[UIScreen mainScreen] bounds];
 //    NSLog(@"大きさは...%f",r.size.height);
-    if(r.size.height == 480){
         
-        //線の描画開始座標をセットする
-        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y-40);
+//    if(r.size.height == 480){
+//        
+//        //線の描画開始座標をセットする
+//        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y-40);
+//        
+//        //線の描画終了座標をセットする
+//        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y-40);
+//        
+//    }else if(r.size.height > 480){
+//        
+//        //線の描画開始座標をセットする
+//        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
+//        
+//        //線の描画終了座標をセットする
+//        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+//        
+//    }else if (r.size.height < 480){
+//        
+//        //線の描画開始座標をセットする
+//        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
+//        
+//        //線の描画終了座標をセットする
+//        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+//
+//        
+//    }
+        // 機種の取得
+        NSString *modelname = [ [ UIDevice currentDevice] model];
         
-        //線の描画終了座標をセットする
-        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y-40);
-        
-    }else if(r.size.height > 480){
-        
+        // iPadかどうか判断する
+        if ( ![modelname hasPrefix:@"iPad"] ) {
+            // iPad以外
+            // Windowスクリーンのサイズを取得
+            CGRect r = [[UIScreen mainScreen] bounds];
+            if(r.size.height == 480){
+                // iPhone4
+                NSLog(@"iPhone4&4s");
+                
         //線の描画開始座標をセットする
         CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
-        
+                
         //線の描画終了座標をセットする
         CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
-        
-    }else if (r.size.height < 480){
-        
+                
+            } else if(r.size.height == 667){
+                // iPhone6
+                NSLog(@"iPhone6");
+                
         //線の描画開始座標をセットする
         CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
-        
+                
         //線の描画終了座標をセットする
         CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+                
+            } else if(r.size.height == 736){
+                // iPhone6 Plus
+                NSLog(@"iPhone6 Plus");
+                
+                //線の描画開始座標をセットする
+                CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
+                
+                //線の描画終了座標をセットする
+                CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
 
-        
-    }
+            
+            } else {
+                // iPhone5
+                NSLog(@"iPhone5");
+                
+                //線の描画開始座標をセットする
+                CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y);
+                
+                //線の描画終了座標をセットする
+                CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+
+                
+            }
+        } else {
+            // iPad
+            NSLog(@"iPad");
+            
+            //線の描画開始座標をセットする
+            CGContextMoveToPoint(UIGraphicsGetCurrentContext(), touchPoint.x, touchPoint.y-3);
+            
+            //線の描画終了座標をセットする
+            CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y-3);
+
+            
+        }
     
     //線の角を丸くする
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -527,11 +591,14 @@
         i = 1 ;
         
     }
+    
+    mouseSwiped = NO ;
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-
-    if (!mouseSwiped) {
+    NSLog(@"%f",canvas.frame.size.height) ;
+    
+    if (mouseSwiped == YES) {
         UIGraphicsBeginImageContext(self.view.frame.size);
         [tempDrawImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -542,6 +609,7 @@
         CGContextFlush(UIGraphicsGetCurrentContext());
         tempDrawImage.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
+    
     }
     
     UIGraphicsBeginImageContext(canvas.frame.size);
@@ -550,6 +618,10 @@
     canvas.image = UIGraphicsGetImageFromCurrentImageContext();
     tempDrawImage.image = nil;
     UIGraphicsEndImageContext();
+    
+    mouseSwiped = NO ;
+    NSLog(@"%f",canvas.frame.size.height) ;
+
 }
 
 
