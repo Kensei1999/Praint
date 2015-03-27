@@ -121,7 +121,7 @@
     
     futosaLabel.text = [NSString stringWithFormat:@"%.2f%%",futosaPercentage] ;
     
-    opacityLabel.text = [NSString stringWithFormat:@"%.2f%",opacityPercentage] ;
+    opacityLabel.text = [NSString stringWithFormat:@"%.2f%%",opacityPercentage] ;
     
 
     
@@ -207,14 +207,14 @@
       
       rgb = 1 ; //ONになると消しゴムを使用するために変数rgbを1（白ペン）に切り替える
 
-      UIImage *img = [UIImage imageNamed:@"brush7.png"];
+      UIImage *img = [UIImage imageNamed:@"eraser2.png"];
       [eraser setImage:img forState:UIControlStateNormal];
       
   }else {
       
       rgb = 0 ; //OFFになると変数rgbを元の0（黒ペン）に戻す
       
-      UIImage *img = [UIImage imageNamed:@"eraser2.png"];
+      UIImage *img = [UIImage imageNamed:@"brush7.png"];
       [eraser setImage:img forState:UIControlStateNormal];
 
   }

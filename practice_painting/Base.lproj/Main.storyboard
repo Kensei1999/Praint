@@ -53,7 +53,6 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -75,16 +74,6 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ボタン用板.png" translatesAutoresizingMaskIntoConstraints="NO" id="zor-as-9Ed">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTd-Z3-ZK9">
-                                        <rect key="frame" x="0.0" y="7" width="43" height="43"/>
-                                        <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="eraser2.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="eraser" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Evm-nP-9Dg"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxe-33-AqK">
                                         <rect key="frame" x="61" y="14" width="32" height="30"/>
                                         <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -129,6 +118,16 @@
                                         <state key="normal" image="round66.png"/>
                                         <connections>
                                             <action selector="info" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qvt-bC-OxP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTd-Z3-ZK9">
+                                        <rect key="frame" x="8" y="7" width="43" height="43"/>
+                                        <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="brush7.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="eraser" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Evm-nP-9Dg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -265,6 +264,7 @@
                         <outlet property="settingView" destination="Acu-8P-1jn" id="mDN-db-wDh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="336" y="100"/>
         </scene>
@@ -430,7 +430,6 @@
     <resources>
         <image name="black393.png" width="64" height="64"/>
         <image name="brush7.png" width="64" height="64"/>
-        <image name="eraser2.png" width="512" height="512"/>
         <image name="paint8.png" width="64" height="64"/>
         <image name="palette_3.png" width="320" height="400"/>
         <image name="picture11.png" width="512" height="512"/>
