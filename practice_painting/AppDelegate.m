@@ -30,7 +30,7 @@
             // iPhone4
             NSLog(@"iPhone4");
             
-            storyBoardName = @"Storyboard-3.5Inch";
+            storyBoardName = @"Main";
             
         } else if(r.size.height == 667){
             // iPhone6
@@ -55,7 +55,7 @@
         // iPad
         NSLog(@"iPad");
         
-        storyBoardName = @"Storyboard-ipad";
+        storyBoardName = @"Main";
         
     }
     

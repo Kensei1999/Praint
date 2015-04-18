@@ -695,11 +695,13 @@
 didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage] ;
-    NSLog(@"%f",image.size.height);
-    NSLog(@"%f",image.size.width);
+    NSLog(@"%f",self.view.frame.size.height);
+    NSLog(@"%f",self.view.frame.size.width );
     
-    haikeigazou.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-    haikeigazou.center = CGPointMake(self.view.center.x, self.view.center.y);
+//    haikeigazou.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+//    haikeigazou.center = CGPointMake(self.view.center.x, self.view.center.y);
+    haikeigazou.frame = CGRectMake(0, 0, canvas.frame.size.width, canvas.frame.size.height);
+    
     
     [haikeigazou setImage:image] ;
     

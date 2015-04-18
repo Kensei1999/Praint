@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,10 +21,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QrY-AU-xlj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAK-Ci-KBM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MAK-Ci-KBM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BWp-Lz-4Us">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWp-Lz-4Us">
                                 <rect key="frame" x="0.0" y="510" width="320" height="58"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ボタン用板.png" translatesAutoresizingMaskIntoConstraints="NO" id="zor-as-9Ed">
@@ -87,12 +88,16 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="1qX-97-ed0"/>
+                                    <constraint firstAttribute="width" constant="320" id="QyN-Lq-RQ2"/>
+                                </constraints>
                             </view>
-                            <view autoresizesSubviews="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="284" translatesAutoresizingMaskIntoConstraints="NO" id="Acu-8P-1jn">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="284" translatesAutoresizingMaskIntoConstraints="NO" id="Acu-8P-1jn">
                                 <rect key="frame" x="0.0" y="117" width="320" height="400"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="palette_3.png" translatesAutoresizingMaskIntoConstraints="NO" id="MCH-PW-diO">
-                                        <rect key="frame" x="0.0" y="-8" width="320" height="400"/>
+                                        <rect key="frame" x="0.0" y="-6" width="320" height="400"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="〜ペンの太さを変える〜" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwJ-qf-tfw">
                                         <rect key="frame" x="0.0" y="314" width="187" height="21"/>
@@ -191,9 +196,29 @@
                                         <rect key="frame" x="110" y="8" width="100" height="100"/>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="8oH-De-4Ba"/>
+                                    <constraint firstAttribute="height" constant="400" id="drO-PJ-lkL"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MAK-Ci-KBM" secondAttribute="bottom" id="4Bk-Nn-zxz"/>
+                            <constraint firstItem="MAK-Ci-KBM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="4by-6d-e15"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Acu-8P-1jn" secondAttribute="bottom" constant="51" id="8pf-LK-AyR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MAK-Ci-KBM" secondAttribute="trailing" constant="-16" id="CXn-3a-SVX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MAK-Ci-KBM" secondAttribute="trailing" constant="-16" id="DMe-Sq-Al6"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MAK-Ci-KBM" secondAttribute="bottom" id="EBB-rb-wyR"/>
+                            <constraint firstItem="BWp-Lz-4Us" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="F0h-8G-clW"/>
+                            <constraint firstItem="MAK-Ci-KBM" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="Kr3-f9-dfb"/>
+                            <constraint firstItem="MAK-Ci-KBM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ZMg-ST-rRn"/>
+                            <constraint firstItem="Acu-8P-1jn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="hHG-Yf-udD"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="BWp-Lz-4Us" secondAttribute="bottom" id="j8Y-Ky-Ut2"/>
+                            <constraint firstItem="MAK-Ci-KBM" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="jZC-9Z-TuK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BWp-Lz-4Us" secondAttribute="trailing" constant="-16" id="syS-JY-58M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Acu-8P-1jn" secondAttribute="trailing" constant="-16" id="xyi-cr-tm6"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bluelineSlider" destination="utL-Mn-244" id="2Gg-fp-TCe"/>
