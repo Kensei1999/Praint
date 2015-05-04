@@ -695,15 +695,79 @@
 didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage] ;
-    NSLog(@"%f",self.view.frame.size.height);
-    NSLog(@"%f",self.view.frame.size.width );
+    CGRect screensize = [[UIScreen mainScreen] bounds];
     
-//    haikeigazou.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-//    haikeigazou.center = CGPointMake(self.view.center.x, self.view.center.y);
-    haikeigazou.frame = CGRectMake(0, 0, canvas.frame.size.width, canvas.frame.size.height);
+        // 取得した画像の縦サイズ、横サイズを取得する
+    int imageW = image.size.width;
+    int imageH = image.size.height;
     
+    if(image.size.width>screensize.size.width){
+    // リサイズする倍率を作成する。
+//    float scaleW = (imageW > imageH ? screensize.size.width/imageH : screensize.size.width/imageW);
     
-    [haikeigazou setImage:image] ;
+    // 比率に合わせてリサイズする。
+    // ポイントはUIGraphicsXXとdrawInRectを用いて、リサイズ後のサイズで、
+    // aImageを書き出し、書き出した画像を取得することで、
+    // リサイズ後の画像を取得します。
+
+
+    CGSize resizedSize = CGSizeMake(imageW * screensize.size.width/imageW, imageH * screensize.size.width/imageW);
+    UIGraphicsBeginImageContext(resizedSize);
+    [image drawInRect:CGRectMake(0, 0, imageW * screensize.size.width/imageW, imageH * screensize.size.width/imageW)];
+    UIImage* resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+        
+        haikeigazou.center =  CGPointMake(screensize.size.width/2, screensize.size.height/2);
+        
+        CGRect rect = CGRectMake(0, 0, imageW * screensize.size.width/imageW, imageH * screensize.size.width/imageW);
+        haikeigazou.frame = rect;
+        
+        haikeigazou.tag = 10;
+        //UIImageViewのサイズを自動的にimageのサイズに合わせる
+        haikeigazou.contentMode = UIViewContentModeCenter;
+        [self.view addSubview:haikeigazou];
+        
+        [haikeigazou setImage:resizedImage] ;
+        
+
+        
+    }else if (image.size.height>screensize.size.height){
+        
+        // リサイズする倍率を作成する。
+//        float scaleH = (imageH > imageW ? screensize.size.height/imageW : screensize.size.height/imageH);
+        
+        // 比率に合わせてリサイズする。
+        // ポイントはUIGraphicsXXとdrawInRectを用いて、リサイズ後のサイズで、
+        // aImageを書き出し、書き出した画像を取得することで、
+        // リサイズ後の画像を取得します。
+        CGSize resizedSize = CGSizeMake(imageW * screensize.size.height/imageH, imageH * screensize.size.height/imageH);
+        UIGraphicsBeginImageContext(resizedSize);
+        [image drawInRect:CGRectMake(0, 0, imageW * screensize.size.height/imageH, imageH * screensize.size.height/imageH)];
+        UIImage* resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        haikeigazou.center =  CGPointMake(screensize.size.width/2, screensize.size.height/2);
+        
+        CGRect rect = CGRectMake(0, 0, imageW * screensize.size.height/imageH, imageH * screensize.size.height/imageH);
+        haikeigazou.frame = rect;
+        
+        haikeigazou.tag = 10;
+        //UIImageViewのサイズを自動的にimageのサイズに合わせる
+        haikeigazou.contentMode = UIViewContentModeCenter;
+        [self.view addSubview:haikeigazou];
+        
+        [haikeigazou setImage:resizedImage] ;
+    }else{
+        haikeigazou.center =  CGPointMake(screensize.size.width/2, screensize.size.height/2);
+        
+        haikeigazou.tag = 10;
+        //UIImageViewのサイズを自動的にimageのサイズに合わせる
+        haikeigazou.contentMode = UIViewContentModeCenter;
+        [self.view addSubview:haikeigazou];
+        
+        [haikeigazou setImage:image] ;
+    }
+
     
 //    [haikeigazou setImage:[info objectForKey:UIImagePickerControllerEditedImage]] ;
 //    [self dismissViewControllerAnimated:YES completion:nil] ;
@@ -711,14 +775,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     canvas.backgroundColor = [UIColor clearColor] ;
     canvas.image = nil;
     
-    [self.view bringSubviewToFront:haikeigazou];    // canvas を最前面に移動
+    [self.view bringSubviewToFront:haikeigazou] ;    // canvas を最前面に移動
     [self.view bringSubviewToFront:canvas] ;
     [self.view bringSubviewToFront:tempDrawImage] ;
-    [self.view bringSubviewToFront:hideView];    // hideView を最前面に移動
+    [self.view bringSubviewToFront:hideView] ;    // hideView を最前面に移動
     
     [self dismissViewControllerAnimated:YES completion:nil] ;
     
     [self.interstitial presentFromRootViewController:self];
+
+    
 }
 
 

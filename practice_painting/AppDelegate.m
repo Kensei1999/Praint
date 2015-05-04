@@ -55,7 +55,7 @@
         // iPad
         NSLog(@"iPad");
         
-        storyBoardName = @"Main";
+        storyBoardName = @"Storyboard-ipad";
         
     }
     

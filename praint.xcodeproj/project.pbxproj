@@ -644,6 +644,7 @@
 				INFOPLIST_FILE = "practice_painting/praint-Info.plist";
 				PRODUCT_NAME = praint;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -665,6 +666,7 @@
 				INFOPLIST_FILE = "practice_painting/praint-Info.plist";
 				PRODUCT_NAME = praint;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
