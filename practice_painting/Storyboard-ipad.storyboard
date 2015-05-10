@@ -64,6 +64,7 @@
                                         <state key="normal" image="round66.png"/>
                                         <connections>
                                             <action selector="info" destination="UPH-RN-16T" eventType="touchUpInside" id="9J8-m6-HFB"/>
+                                            <segue destination="rYe-ty-HKL" kind="modal" id="tqb-XM-DOo"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbn-jv-xcG">
@@ -218,6 +219,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Vv-b1-Lw2" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2142.7200000000003" y="2160.6400000000003"/>
+        </scene>
+        <!--Explain View Controller-->
+        <scene sceneID="Iux-qb-YjE">
+            <objects>
+                <viewController id="rYe-ty-HKL" customClass="ExplainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QID-9j-Y93"/>
+                        <viewControllerLayoutGuide type="bottom" id="xgz-bM-7tR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Pg-UP-rRR">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9cx-hB-Adc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3082" y="2167"/>
         </scene>
     </scenes>
     <resources>

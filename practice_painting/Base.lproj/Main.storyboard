@@ -73,7 +73,7 @@
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <state key="normal" image="round66.png"/>
                                         <connections>
-                                            <action selector="info" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qvt-bC-OxP"/>
+                                            <segue destination="21Z-eb-3uu" kind="modal" id="7R5-d8-uMF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTd-Z3-ZK9">
@@ -184,7 +184,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brush7.png" translatesAutoresizingMaskIntoConstraints="NO" id="SLI-Cg-2to">
-                                        <rect key="frame" x="110" y="4" width="100" height="100"/>
+                                        <rect key="frame" x="26" y="4" width="100" height="100"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9B-uL-UgU">
                                         <rect key="frame" x="213" y="337" width="108" height="28"/>
@@ -193,7 +193,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ui6-gi-7CN">
-                                        <rect key="frame" x="110" y="8" width="100" height="100"/>
+                                        <rect key="frame" x="26" y="8" width="100" height="100"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -224,13 +224,13 @@
                         <outlet property="bluelineSlider" destination="utL-Mn-244" id="2Gg-fp-TCe"/>
                         <outlet property="bluelinelabel" destination="5P4-ns-r7c" id="pHt-KI-78Y"/>
                         <outlet property="brushPreview" destination="ui6-gi-7CN" id="gZy-vR-bHU"/>
-                        <outlet property="canvas" destination="MAK-Ci-KBM" id="sQw-Ds-atO"/>
+                        <outlet property="canvas" destination="QrY-AU-xlj" id="Pg4-Ky-Bhf"/>
                         <outlet property="eraser" destination="RTd-Z3-ZK9" id="U07-Xy-Z1V"/>
                         <outlet property="futosaLabel" destination="z9B-uL-UgU" id="d83-mT-G70"/>
                         <outlet property="futosaSlider" destination="8KW-Px-34s" id="fEj-6z-VKO"/>
                         <outlet property="greenlineSlider" destination="GYt-uv-wcF" id="4gp-z9-anc"/>
                         <outlet property="greenlinelabel" destination="5XJ-Pe-fan" id="cZ5-VI-fyh"/>
-                        <outlet property="haikeigazou" destination="QrY-AU-xlj" id="Zip-DQ-GAz"/>
+                        <outlet property="haikeigazou" destination="MAK-Ci-KBM" id="QWi-cu-SAe"/>
                         <outlet property="hideView" destination="BWp-Lz-4Us" id="B13-Kd-fi4"/>
                         <outlet property="opacityLabel" destination="lYB-GM-Hji" id="eMa-do-mrg"/>
                         <outlet property="opacitySlider" destination="4ky-nV-WSU" id="bs0-XH-3ah"/>
@@ -242,6 +242,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="336" y="100"/>
+        </scene>
+        <!--Explain View Controller-->
+        <scene sceneID="im8-1H-6zb">
+            <objects>
+                <viewController id="21Z-eb-3uu" customClass="ExplainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="whh-Zx-AYB"/>
+                        <viewControllerLayoutGuide type="bottom" id="BTh-zg-l9g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="juV-9S-fBF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HmI-tp-0C9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="100"/>
         </scene>
     </scenes>
     <resources>

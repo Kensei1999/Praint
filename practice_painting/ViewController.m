@@ -7,21 +7,29 @@
 //
 
 #import "ViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "ALRadialMenu.h"
+#import "ALRadialButton.h"
+#import "BFPaperCheckbox.h"
+#import "ICETutorialController.h"
+#import "ICETutorialPage.h"
+#import "ICETutorialStyle.h"
 
 @import GoogleMobileAds ;
 
-@interface ViewController ()<UIActionSheetDelegate,GADInterstitialDelegate, UIAlertViewDelegate>
+@interface ViewController ()<UIActionSheetDelegate, UIAlertViewDelegate>
 
 @property(nonatomic, strong) GADInterstitial *interstitial;
+@property BFPaperCheckbox *paperCheckbox;
+@property UILabel *paperCheckboxLabel;
+
 
 
 @end
 
 @implementation ViewController{
-
     UIImageView *tempDrawImage;
     CGPoint currentPoint;
-    
 }
 
 
@@ -31,6 +39,25 @@
     
     [self createAndLoadInterstitial];
     
+    //create an instance of the radial menu and set ourselves as the delegate.
+    self.radialMenu = [[ALRadialMenu alloc] init];
+    self.radialMenu.delegate = self;
+    
+    // Set up fist checkbox:
+    self.paperCheckbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(109, 0, bfPaperCheckboxDefaultRadius * 2, bfPaperCheckboxDefaultRadius * 2)];
+    self.paperCheckbox.tag = 1001;
+    self.paperCheckbox.delegate = self;
+    [settingView addSubview:self.paperCheckbox];
+    
+    // Set up first checkbox label:
+    self.paperCheckboxLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 170, 31)];
+    self.paperCheckboxLabel.text = @"背景透明化[OFF]";
+    self.paperCheckboxLabel.backgroundColor = [UIColor clearColor];
+    self.paperCheckboxLabel.center = CGPointMake(self.paperCheckbox.center.x + ((2 * self.paperCheckboxLabel.frame.size.width) / 3), self.paperCheckbox.center.y);
+    [settingView addSubview:self.paperCheckboxLabel];
+    
+    
+
     
     actionNum = 0 ;
     
@@ -142,6 +169,35 @@
     
 }
 
+- (void)tapped:(UIButton *)sender
+{
+    BOOL animate;
+    if (sender.tag == 2001) {       // animate button tag
+        animate = YES;
+    }
+    else if (sender.tag == 2002) {  // static button tag
+        animate = NO;
+    }
+    
+    /*
+     * Below are the two ways of programmatically setting the state of a checkbox.
+     */
+    
+    // (1) Swap paperCheckbox's state with the 'switchStates...' method:
+    [self.paperCheckbox switchStatesAnimated:animate];
+    
+
+}
+
+#pragma mark - BFPaperCheckbox Delegate
+- (void)paperCheckboxChangedState:(BFPaperCheckbox *)checkbox
+{
+        self.paperCheckboxLabel.text = self.paperCheckbox.isChecked ? @"背景透明化 [ON]" : @"背景透明化 [OFF]";
+    
+        haikeigazou.alpha = self.paperCheckbox.isChecked ? 0.0f : 0.5f;
+
+}
+
 - (void)createAndLoadInterstitial {
     self.interstitial = [[GADInterstitial alloc] init];
     self.interstitial.adUnitID = @"ca-app-pub-9211047756234595/4443203664";
@@ -182,6 +238,7 @@
     
     
 }
+
 
 // ステータスバーの非表示
 - (BOOL)prefersStatusBarHidden
@@ -670,7 +727,66 @@
 
 -(IBAction)info{
     
-    [self.interstitial presentFromRootViewController:self];
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    
+//    // Init the pages texts, and pictures.
+//    ICETutorialPage *layer1 = [[ICETutorialPage alloc] initWithTitle:@"praintへようこそ！"
+//                                                            subTitle:@"これから操作説明を行います"
+//                                                         pictureName:@"説明0.png"
+//                                                            duration:3.0];
+//    ICETutorialPage *layer2 = [[ICETutorialPage alloc] initWithTitle:@"1.ペンと消しゴム"
+//                                                            subTitle:@"ペン・消しゴムボタンではペンと消しゴムを切り替えられます"
+//                                                         pictureName:@"説明1.png"
+//                                                            duration:3.0];
+//    ICETutorialPage *layer3 = [[ICETutorialPage alloc] initWithTitle:@"2.全消し"
+//                                                            subTitle:@"ゴミ箱のボタンでは今まで自分が描いていた全てを削除します"
+//                                                         pictureName:@"説明2.png"
+//                                                            duration:3.0];
+//    ICETutorialPage *layer4 = [[ICETutorialPage alloc] initWithTitle:@"3.背景画像の変更"
+//                                                            subTitle:@"写真のボタンでは自分の描きたい画像を変更できます"
+//                                                         pictureName:@"説明3.png"
+//                                                            duration:3.0];
+//    ICETutorialPage *layer5 = [[ICETutorialPage alloc] initWithTitle:@"4.シェア"
+//                                                            subTitle:@"共有ボタンでは自分の描いた絵を保存したり、twitterやlineなどで自慢できます"
+//                                                         pictureName:@"説明4.png"
+//                                                            duration:3.0];
+//    ICETutorialPage *layer6 = [[ICETutorialPage alloc] initWithTitle:@"5.設定"
+//                                                            subTitle:@"パレットボタンでは、ペンの太さや色などを自分好みに設定できます"
+//                                                         pictureName:@"説明5.png"
+//                                                            duration:3.0];
+//    ICETutorialPage *layer7 = [[ICETutorialPage alloc] initWithTitle:@""
+//                                                            subTitle:@"それでは、お絵描きを楽しんでください！"
+//                                                         pictureName:@"説明0.png"
+//                                                            duration:3.0];
+//    ICETutorialPage *layer8 = [[ICETutorialPage alloc] initWithTitle:@""
+//                                                            subTitle:@""
+//                                                         pictureName:@"板目２（元）.png"
+//                                                            duration:3.0];
+//    
+//    NSArray *tutorialLayers = @[layer1,layer2,layer3,layer4,layer5,layer6,layer7,layer8];
+//    
+//    // Set the common style for the title.
+//    ICETutorialLabelStyle *titleStyle = [[ICETutorialLabelStyle alloc] init];
+//    [titleStyle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17.0f]];
+//    [titleStyle setTextColor:[UIColor whiteColor]];
+//    [titleStyle setLinesNumber:1];
+//    [titleStyle setOffset:180];
+//    [[ICETutorialStyle sharedInstance] setTitleStyle:titleStyle];
+//    
+//    // Set the subTitles style with few properties and let the others by default.
+//    [[ICETutorialStyle sharedInstance] setSubTitleColor:[UIColor whiteColor]];
+//    [[ICETutorialStyle sharedInstance] setSubTitleOffset:150];
+//    
+//    // Init tutorial.
+//    self.TutorialViewController = [[ICETutorialController alloc] initWithPages:tutorialLayers
+//                                                                      delegate:self];
+//    
+//    // Run it.
+//    [self.TutorialViewController startScrolling];
+//    
+//    self.window.rootViewController = self.TutorialViewController;
+//    [self.window makeKeyAndVisible];
     
 }
 
@@ -1188,19 +1304,96 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
 }
 
+- (IBAction)buttonPressed:(id)sender {
+    //the button that brings the items into view was pressed
+        [self.radialMenu buttonsWillAnimateFromButton:sender withFrame:self.radialbutton.frame inView:self.view];
+    
+}
 
 
+#pragma mark - radial menu delegate methods
+- (NSInteger) numberOfItemsInRadialMenu:(ALRadialMenu *)radialMenu {
+    //FIXME: dipshit, change one of these variable names
+        return 6;
+
+}
 
 
+- (NSInteger) arcSizeForRadialMenu:(ALRadialMenu *)radialMenu {
+        return 360;
+
+}
 
 
+- (NSInteger) arcRadiusForRadialMenu:(ALRadialMenu *)radialMenu {
+        return 80;
+    
+}
 
 
+- (ALRadialButton *) radialMenu:(ALRadialMenu *)radialMenu buttonForIndex:(NSInteger)index {
+    ALRadialButton *button = [[ALRadialButton alloc] init];
+        if (index == 1) {
+            [button setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateNormal];
+        } else if (index == 2) {
+            [button setImage:[UIImage imageNamed:@"youtube"] forState:UIControlStateNormal];
+        } else if (index == 3) {
+            [button setImage:[UIImage imageNamed:@"vimeo"] forState:UIControlStateNormal];
+        } else if (index == 4) {
+            [button setImage:[UIImage imageNamed:@"pinterest"] forState:UIControlStateNormal];
+        } else if (index == 5) {
+            [button setImage:[UIImage imageNamed:@"twitter"] forState:UIControlStateNormal];
+        } else if (index == 6) {
+            [button setImage:[UIImage imageNamed:@"instagram500"] forState:UIControlStateNormal];
+        }
+
+    if (button.imageView.image) {
+        return button;
+    }
+    
+    return nil;
+}
 
 
+- (void) radialMenu:(ALRadialMenu *)radialMenu didSelectItemAtIndex:(NSInteger)index {
+        [self.radialMenu itemsWillDisapearIntoButton:self.radialbutton];
+    
+    
+}
 
 
-
+//#pragma mark - ICETutorialController delegate
+//- (void)tutorialController:(ICETutorialController *)tutorialController scrollingFromPageIndex:(NSUInteger)fromIndex toPageIndex:(NSUInteger)toIndex {
+//    NSLog(@"Scrolling from page %lu to page %lu.", (unsigned long)fromIndex, (unsigned long)toIndex);
+//    
+//}
+//
+//- (void)tutorialControllerDidReachLastPage:(ICETutorialController *)tutorialController {
+//    NSLog(@"Tutorial reached the last page.");
+//    
+//    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil] ;
+////    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil] ;
+//
+//    [self.TutorialViewController stopScrolling];
+//
+//    
+////    [self.interstitial presentFromRootViewController:self];
+//
+//
+//    
+//}
+//
+////- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnLeftButton:(UIButton *)sender {
+////    NSLog(@"Button 1 pressed.");
+////    
+////}
+////
+////- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnRightButton:(UIButton *)sender {
+////    NSLog(@"Button 2 pressed.");
+////    NSLog(@"Auto-scrolling stopped.");
+////    
+////    [self.TutorialViewController stopScrolling];
+////}
 
 
 

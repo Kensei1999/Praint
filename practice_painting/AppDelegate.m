@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+
+
 #define INTERSTITIAL_AD_UNIT_ID @"ca-app-pub-9211047756234595/7610322869"
 
 @implementation AppDelegate
@@ -109,13 +111,13 @@
 //        // iOS 7の時の処理
 //        NSLog(@"iOS7");
 //    }
-//    
-    
-    
+//
+
     
     return YES;
 
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

@@ -12,9 +12,15 @@
 #import <Social/Social.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "GoogleMobileAds/GADInterstitial.h"
+#import "ALRadialMenu.h"
+#import "BFPaperCheckbox.h"
+#import "ICETutorialController.h"
+
+
 @import GoogleMobileAds ;
 
-@interface ViewController : UIViewController<GADInterstitialDelegate> {
+@interface ViewController : UIViewController<GADInterstitialDelegate,ALRadialMenuDelegate,BFPaperCheckboxDelegate,ICETutorialControllerDelegate>
+{
     
     float redlineNumber ;
     float greenlineNumber ;
@@ -30,10 +36,10 @@
     float futosaPercentage ;
     float opacityPercentage ;
 
-    UIImageView *canvas ;
+    IBOutlet UIImageView *canvas ;
     //お絵描きしていくキャンバス（画用紙）を準備します
     
-    UIImageView *haikeigazou ;
+    IBOutlet UIImageView *haikeigazou ;
     //背景画像を表示する
     
     UIImage *tweetpic ;
@@ -87,6 +93,8 @@
     IBOutlet UISlider* opacitySlider ;
     
     IBOutlet UILabel *opacityLabel ;
+    
+   
 }
 
 
@@ -103,5 +111,14 @@
 @property (weak, nonatomic) IBOutlet UIImageView *brushPreview ;
 @property (weak, nonatomic) IBOutlet UIImageView *eraserPreview ;
 
+- (IBAction)buttonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *radialbutton;
+
+@property (strong, nonatomic) ALRadialMenu *radialMenu;
+
+@property (strong, nonatomic) NSArray *popups;
+
+@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) IBOutlet ICETutorialController *TutorialViewController;
 
 @end

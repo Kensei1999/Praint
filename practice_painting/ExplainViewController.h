@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ICETutorialController.h"
 
-@interface ExplainViewController : UIViewController{
+@interface ExplainViewController : UIViewController<ICETutorialControllerDelegate>{
     
 }
 
--(IBAction)back ;
+
+@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) IBOutlet ICETutorialController *TutorialViewController;
 
 @end
