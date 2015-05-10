@@ -10,8 +10,14 @@
 #import "ICETutorialController.h"
 #import "ICETutorialPage.h"
 #import "ICETutorialStyle.h"
+#import "ViewController.h"
+
+@import GoogleMobileAds ;
+
 
 @interface ExplainViewController ()
+
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
 @end
 
@@ -30,6 +36,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    [self createAndLoadInterstitial];
+
     
     // ステータスバーの表示/非表示メソッド呼び出し
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
@@ -41,6 +50,20 @@
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     }
     
+}
+- (void)createAndLoadInterstitial {
+    self.interstitial = [[GADInterstitial alloc] init];
+    self.interstitial.adUnitID = @"ca-app-pub-9211047756234595/4443203664";
+    self.interstitial.delegate = self;
+    
+    GADRequest *request = [GADRequest request];
+    
+    [self.interstitial loadRequest:request];
+}
+
+- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
+    NSLog(@"interstitialDidDismissScreen");
+    [self createAndLoadInterstitial];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -136,11 +159,13 @@
 
 - (void)tutorialControllerDidReachLastPage:(ICETutorialController *)tutorialController {
     NSLog(@"Tutorial reached the last page.");
-    
+        [self.TutorialViewController stopScrolling];
+
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil] ;
     //    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil] ;
     
-    [self.TutorialViewController stopScrolling];
+    [self.interstitial presentFromRootViewController:self.presentingViewController];
+
     
     
     //    [self.interstitial presentFromRootViewController:self];

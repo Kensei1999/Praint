@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		531A3FA71AFF61C1004363EA /* 説明0.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A3FA11AFF61C1004363EA /* 説明0.png */; };
+		531A3FA81AFF61C1004363EA /* 説明1.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A3FA21AFF61C1004363EA /* 説明1.png */; };
+		531A3FA91AFF61C1004363EA /* 説明2.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A3FA31AFF61C1004363EA /* 説明2.png */; };
+		531A3FAA1AFF61C1004363EA /* 説明3.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A3FA41AFF61C1004363EA /* 説明3.png */; };
+		531A3FAB1AFF61C1004363EA /* 説明4.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A3FA51AFF61C1004363EA /* 説明4.png */; };
+		531A3FAC1AFF61C1004363EA /* 説明5.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A3FA61AFF61C1004363EA /* 説明5.png */; };
 		531BDCEF1918EDAD00ABD7EB /* colorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531BDCEE1918EDAD00ABD7EB /* colorViewController.m */; };
 		53340B7D199A1D37009ADA7A /* 木目（praint）.png in Resources */ = {isa = PBXBuildFile; fileRef = 53340B7C199A1D37009ADA7A /* 木目（praint）.png */; };
 		53382243191493EA00E7D2AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53382242191493EA00E7D2AE /* Foundation.framework */; };
@@ -36,12 +42,6 @@
 		533A75A81918624E004DBAE9 /* 木目（お絵描き練習）.png in Resources */ = {isa = PBXBuildFile; fileRef = 533A75A71918624E004DBAE9 /* 木目（お絵描き練習）.png */; };
 		533A75AC19186561004DBAE9 /* 使い方ボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 533A75AB19186561004DBAE9 /* 使い方ボタン.png */; };
 		533A75AE1918682F004DBAE9 /* スタートボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 533A75AD1918682F004DBAE9 /* スタートボタン.png */; };
-		53568A9F1AF99A09008B3282 /* 説明0.png in Resources */ = {isa = PBXBuildFile; fileRef = 53568A991AF99A09008B3282 /* 説明0.png */; };
-		53568AA01AF99A09008B3282 /* 説明3.png in Resources */ = {isa = PBXBuildFile; fileRef = 53568A9A1AF99A09008B3282 /* 説明3.png */; };
-		53568AA11AF99A09008B3282 /* 説明1.png in Resources */ = {isa = PBXBuildFile; fileRef = 53568A9B1AF99A09008B3282 /* 説明1.png */; };
-		53568AA21AF99A09008B3282 /* 説明2.png in Resources */ = {isa = PBXBuildFile; fileRef = 53568A9C1AF99A09008B3282 /* 説明2.png */; };
-		53568AA31AF99A09008B3282 /* 説明4.png in Resources */ = {isa = PBXBuildFile; fileRef = 53568A9D1AF99A09008B3282 /* 説明4.png */; };
-		53568AA41AF99A09008B3282 /* 説明5.png in Resources */ = {isa = PBXBuildFile; fileRef = 53568A9E1AF99A09008B3282 /* 説明5.png */; };
 		5366F7CF1917572A00E00101 /* hudeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5366F7CE1917572A00E00101 /* hudeicon.png */; };
 		5366F7D119175D6700E00101 /* hudeicon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 5366F7D019175D6700E00101 /* hudeicon80.png */; };
 		5366F7D319175DC400E00101 /* hudeicon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 5366F7D219175DC400E00101 /* hudeicon58.png */; };
@@ -88,6 +88,12 @@
 
 /* Begin PBXFileReference section */
 		2C914BE1D8F190D657F6979E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		531A3FA11AFF61C1004363EA /* 説明0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "説明0.png"; sourceTree = "<group>"; };
+		531A3FA21AFF61C1004363EA /* 説明1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "説明1.png"; sourceTree = "<group>"; };
+		531A3FA31AFF61C1004363EA /* 説明2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "説明2.png"; sourceTree = "<group>"; };
+		531A3FA41AFF61C1004363EA /* 説明3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "説明3.png"; sourceTree = "<group>"; };
+		531A3FA51AFF61C1004363EA /* 説明4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "説明4.png"; sourceTree = "<group>"; };
+		531A3FA61AFF61C1004363EA /* 説明5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "説明5.png"; sourceTree = "<group>"; };
 		531BDCED1918EDAD00ABD7EB /* colorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorViewController.h; sourceTree = "<group>"; };
 		531BDCEE1918EDAD00ABD7EB /* colorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorViewController.m; sourceTree = "<group>"; };
 		53340B7C199A1D37009ADA7A /* 木目（praint）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "木目（praint）.png"; sourceTree = "<group>"; };
@@ -123,12 +129,6 @@
 		533A75A71918624E004DBAE9 /* 木目（お絵描き練習）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "木目（お絵描き練習）.png"; sourceTree = "<group>"; };
 		533A75AB19186561004DBAE9 /* 使い方ボタン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "使い方ボタン.png"; sourceTree = "<group>"; };
 		533A75AD1918682F004DBAE9 /* スタートボタン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "スタートボタン.png"; sourceTree = "<group>"; };
-		53568A991AF99A09008B3282 /* 説明0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "説明0.png"; path = "../../../../../../../Desktop/説明0.png"; sourceTree = "<group>"; };
-		53568A9A1AF99A09008B3282 /* 説明3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "説明3.png"; path = "../../../../../../../Desktop/説明3.png"; sourceTree = "<group>"; };
-		53568A9B1AF99A09008B3282 /* 説明1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "説明1.png"; path = "../../../../../../../Desktop/説明1.png"; sourceTree = "<group>"; };
-		53568A9C1AF99A09008B3282 /* 説明2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "説明2.png"; path = "../../../../../../../Desktop/説明2.png"; sourceTree = "<group>"; };
-		53568A9D1AF99A09008B3282 /* 説明4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "説明4.png"; path = "../../../../../../../Desktop/説明4.png"; sourceTree = "<group>"; };
-		53568A9E1AF99A09008B3282 /* 説明5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "説明5.png"; path = "../../../../../../../Desktop/説明5.png"; sourceTree = "<group>"; };
 		5366F7CE1917572A00E00101 /* hudeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hudeicon.png; sourceTree = "<group>"; };
 		5366F7D019175D6700E00101 /* hudeicon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hudeicon80.png; sourceTree = "<group>"; };
 		5366F7D219175DC400E00101 /* hudeicon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hudeicon58.png; sourceTree = "<group>"; };
@@ -281,12 +281,12 @@
 		5338EA6F1915D2B0005FE15C /* pic */ = {
 			isa = PBXGroup;
 			children = (
-				53568A991AF99A09008B3282 /* 説明0.png */,
-				53568A9A1AF99A09008B3282 /* 説明3.png */,
-				53568A9B1AF99A09008B3282 /* 説明1.png */,
-				53568A9C1AF99A09008B3282 /* 説明2.png */,
-				53568A9D1AF99A09008B3282 /* 説明4.png */,
-				53568A9E1AF99A09008B3282 /* 説明5.png */,
+				531A3FA11AFF61C1004363EA /* 説明0.png */,
+				531A3FA21AFF61C1004363EA /* 説明1.png */,
+				531A3FA31AFF61C1004363EA /* 説明2.png */,
+				531A3FA41AFF61C1004363EA /* 説明3.png */,
+				531A3FA51AFF61C1004363EA /* 説明4.png */,
+				531A3FA61AFF61C1004363EA /* 説明5.png */,
 				5380400D1AC4DD0A00E04411 /* palette_ipad.png */,
 				53B6D64C1AC4565700310806 /* palette_3.png */,
 				53B6D6481AC44C4200310806 /* brush7.png */,
@@ -423,19 +423,16 @@
 				536A2F0E1917CADA00FBAEFE /* 使い方ボタン.png in Resources */,
 				5366F7CF1917572A00E00101 /* hudeicon.png in Resources */,
 				536A2F081917C94500FBAEFE /* 背景.png in Resources */,
-				53568A9F1AF99A09008B3282 /* 説明0.png in Resources */,
 				53D17B1919CC489A006C86C6 /* share.png in Resources */,
 				53DFA71A1A209BE100F3AFE8 /* PraintIcon_1024.png in Resources */,
-				53568AA21AF99A09008B3282 /* 説明2.png in Resources */,
 				53751A1019E7F62B00D7AA54 /* icon_1024.png in Resources */,
 				53DFA7171A209BE100F3AFE8 /* PraintIcon_58.png in Resources */,
 				53DFA7191A209BE100F3AFE8 /* PraintIcon_120.png in Resources */,
 				533A75AE1918682F004DBAE9 /* スタートボタン.png in Resources */,
-				53568AA41AF99A09008B3282 /* 説明5.png in Resources */,
-				53568AA31AF99A09008B3282 /* 説明4.png in Resources */,
-				53568AA01AF99A09008B3282 /* 説明3.png in Resources */,
 				5338EA6B1915D2A4005FE15C /* new42.png in Resources */,
 				53FFA5461AC00782005E1A49 /* round66.png in Resources */,
+				531A3FAC1AFF61C1004363EA /* 説明5.png in Resources */,
+				531A3FAB1AFF61C1004363EA /* 説明4.png in Resources */,
 				5380400E1AC4DD0A00E04411 /* palette_ipad.png in Resources */,
 				53340B7D199A1D37009ADA7A /* 木目（praint）.png in Resources */,
 				53751A0D19E7F62B00D7AA54 /* icon_58.png in Resources */,
@@ -456,13 +453,16 @@
 				533A75A81918624E004DBAE9 /* 木目（お絵描き練習）.png in Resources */,
 				5379CF6019A1C75D001031B5 /* arrow430.png in Resources */,
 				53B6D64B1AC44C4200310806 /* paint8.png in Resources */,
+				531A3FA81AFF61C1004363EA /* 説明1.png in Resources */,
 				5338EA641915D268005FE15C /* eraser2.png in Resources */,
 				53C778091A862F5D00378D7E /* palette.png in Resources */,
 				53B6D64D1AC4565700310806 /* palette_3.png in Resources */,
 				5338224D191493EA00E7D2AE /* InfoPlist.strings in Resources */,
 				533822791914B8AA00E7D2AE /* ボタン用板.png in Resources */,
+				531A3FA91AFF61C1004363EA /* 説明2.png in Resources */,
+				531A3FA71AFF61C1004363EA /* 説明0.png in Resources */,
+				531A3FAA1AFF61C1004363EA /* 説明3.png in Resources */,
 				5338EA6D1915D2A4005FE15C /* picture11.png in Resources */,
-				53568AA11AF99A09008B3282 /* 説明1.png in Resources */,
 				53751A0F19E7F62B00D7AA54 /* icon_120.png in Resources */,
 				53DFA7181A209BE100F3AFE8 /* PraintIcon_80.png in Resources */,
 				5366F7D319175DC400E00101 /* hudeicon58.png in Resources */,

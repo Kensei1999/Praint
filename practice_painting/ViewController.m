@@ -898,7 +898,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     [self dismissViewControllerAnimated:YES completion:nil] ;
     
-    [self.interstitial presentFromRootViewController:self];
+//    [self.interstitial presentFromRootViewController:self];
 
     
 }
