@@ -35,7 +35,10 @@
     float bluelinePercentage ;
     float futosaPercentage ;
     float opacityPercentage ;
-
+    
+    int DrawingNumber ;
+    UIImage *DrawingArray[10000] ;
+    
     IBOutlet UIImageView *canvas ;
     //お絵描きしていくキャンバス（画用紙）を準備します
     
@@ -107,6 +110,10 @@
 -(IBAction)jiman:(id)sender ;
 
 -(IBAction)info ;
+
+-(IBAction)undo:(id)sender ;
+-(IBAction)redo:(id)sender ;
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *brushPreview ;
 @property (weak, nonatomic) IBOutlet UIImageView *eraserPreview ;

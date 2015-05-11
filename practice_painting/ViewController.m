@@ -15,6 +15,8 @@
 #import "ICETutorialPage.h"
 #import "ICETutorialStyle.h"
 
+
+
 @import GoogleMobileAds ;
 
 @interface ViewController ()<UIActionSheetDelegate, UIAlertViewDelegate>
@@ -30,6 +32,7 @@
 @implementation ViewController{
     UIImageView *tempDrawImage;
     CGPoint currentPoint;
+    
 }
 
 
@@ -38,6 +41,8 @@
     [super viewDidLoad];
     
     [self createAndLoadInterstitial];
+
+    DrawingNumber = 0 ;
     
     //create an instance of the radial menu and set ourselves as the delegate.
     self.radialMenu = [[ALRadialMenu alloc] init];
@@ -166,6 +171,8 @@
     
     tempDrawImage = [[UIImageView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:tempDrawImage];
+    
+    DrawingArray[DrawingNumber] = canvas.image ;
     
 }
 
@@ -653,7 +660,7 @@
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"%f",canvas.frame.size.height) ;
+
     
     if (mouseSwiped == YES) {
         UIGraphicsBeginImageContext(self.view.frame.size);
@@ -677,7 +684,23 @@
     UIGraphicsEndImageContext();
     
     mouseSwiped = NO ;
-    NSLog(@"%f",canvas.frame.size.height) ;
+    
+    DrawingNumber += 1 ;
+    DrawingArray[DrawingNumber] = canvas.image ;
+    
+
+}
+
+-(IBAction)undo:(id)sender{
+    canvas.image = DrawingArray[DrawingNumber] ;
+    DrawingNumber -= 1 ;
+}
+
+-(IBAction)redo:(id)sender{
+    
+//    if(DrawingNumber+1 == nil){
+//    }
+    canvas.image = DrawingArray[DrawingNumber+1] ;
 
 }
 
