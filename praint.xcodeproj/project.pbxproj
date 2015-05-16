@@ -20,6 +20,8 @@
 		531A3FEA1AFF8091004363EA /* colorPickerKnob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A3FE41AFF8091004363EA /* colorPickerKnob@2x.png */; };
 		531A3FEB1AFF8091004363EA /* pickerColorWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A3FE51AFF8091004363EA /* pickerColorWheel.png */; };
 		531A3FEC1AFF8091004363EA /* pickerColorWheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A3FE61AFF8091004363EA /* pickerColorWheel@2x.png */; };
+		531A402A1B072E24004363EA /* PraintIcon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A40281B072E24004363EA /* PraintIcon_152.png */; };
+		531A402B1B072E24004363EA /* PraintIcon_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A40291B072E24004363EA /* PraintIcon_76.png */; };
 		531BDCEF1918EDAD00ABD7EB /* colorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531BDCEE1918EDAD00ABD7EB /* colorViewController.m */; };
 		53340B7D199A1D37009ADA7A /* 木目（praint）.png in Resources */ = {isa = PBXBuildFile; fileRef = 53340B7C199A1D37009ADA7A /* 木目（praint）.png */; };
 		53382243191493EA00E7D2AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53382242191493EA00E7D2AE /* Foundation.framework */; };
@@ -102,6 +104,8 @@
 		531A3FE41AFF8091004363EA /* colorPickerKnob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colorPickerKnob@2x.png"; sourceTree = "<group>"; };
 		531A3FE51AFF8091004363EA /* pickerColorWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickerColorWheel.png; sourceTree = "<group>"; };
 		531A3FE61AFF8091004363EA /* pickerColorWheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pickerColorWheel@2x.png"; sourceTree = "<group>"; };
+		531A40281B072E24004363EA /* PraintIcon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PraintIcon_152.png; sourceTree = "<group>"; };
+		531A40291B072E24004363EA /* PraintIcon_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PraintIcon_76.png; sourceTree = "<group>"; };
 		531BDCED1918EDAD00ABD7EB /* colorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorViewController.h; sourceTree = "<group>"; };
 		531BDCEE1918EDAD00ABD7EB /* colorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorViewController.m; sourceTree = "<group>"; };
 		53340B7C199A1D37009ADA7A /* 木目（praint）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "木目（praint）.png"; sourceTree = "<group>"; };
@@ -285,6 +289,8 @@
 		5338EA6F1915D2B0005FE15C /* pic */ = {
 			isa = PBXGroup;
 			children = (
+				531A40281B072E24004363EA /* PraintIcon_152.png */,
+				531A40291B072E24004363EA /* PraintIcon_76.png */,
 				531A3FE11AFF8091004363EA /* checkerboard.png */,
 				531A3FE21AFF8091004363EA /* checkerboard@2x.png */,
 				531A3FE31AFF8091004363EA /* colorPickerKnob.png */,
@@ -425,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				536A2F0E1917CADA00FBAEFE /* 使い方ボタン.png in Resources */,
+				531A402A1B072E24004363EA /* PraintIcon_152.png in Resources */,
 				536A2F081917C94500FBAEFE /* 背景.png in Resources */,
 				53D17B1919CC489A006C86C6 /* share.png in Resources */,
 				53DFA71A1A209BE100F3AFE8 /* PraintIcon_1024.png in Resources */,
@@ -462,6 +469,7 @@
 				53B6D64D1AC4565700310806 /* palette_3.png in Resources */,
 				5338224D191493EA00E7D2AE /* InfoPlist.strings in Resources */,
 				533822791914B8AA00E7D2AE /* ボタン用板.png in Resources */,
+				531A402B1B072E24004363EA /* PraintIcon_76.png in Resources */,
 				531A3FA91AFF61C1004363EA /* 説明2.png in Resources */,
 				531A3FA71AFF61C1004363EA /* 説明0.png in Resources */,
 				531A3FAA1AFF61C1004363EA /* 説明3.png in Resources */,

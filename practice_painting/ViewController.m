@@ -43,7 +43,7 @@
     [self createAndLoadInterstitial];
 
     DrawingNumber = 0 ;
-    
+        
     //create an instance of the radial menu and set ourselves as the delegate.
     self.radialMenu = [[ALRadialMenu alloc] init];
     self.radialMenu.delegate = self;
@@ -54,7 +54,7 @@
     self.paperCheckbox.delegate = self;
     [settingView addSubview:self.paperCheckbox];
     
-    // Set up first checkbox label:
+    // Set up checkbox label:
     self.paperCheckboxLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 170, 31)];
     self.paperCheckboxLabel.text = @"背景透明化[OFF]";
     self.paperCheckboxLabel.backgroundColor = [UIColor clearColor];
@@ -688,7 +688,7 @@
     DrawingNumber += 1 ;
     DrawingArray[DrawingNumber] = canvas.image ;
     
-
+    [self myFunction] ;
 }
 
 -(IBAction)undo:(id)sender{
@@ -1372,6 +1372,19 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
     if (button.imageView.image) {
         return button;
+        if (index == 1) {
+//            [button setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateNormal];
+        } else if (index == 2) {
+//            [button setImage:[UIImage imageNamed:@"youtube"] forState:UIControlStateNormal];
+        } else if (index == 3) {
+//            [button setImage:[UIImage imageNamed:@"vimeo"] forState:UIControlStateNormal];
+        } else if (index == 4) {
+//            [button setImage:[UIImage imageNamed:@"pinterest"] forState:UIControlStateNormal];
+        } else if (index == 5) {
+//            [button setImage:[UIImage imageNamed:@"twitter"] forState:UIControlStateNormal];
+        } else if (index == 6) {
+//            [button setImage:[UIImage imageNamed:@"instagram500"] forState:UIControlStateNormal];
+        }
     }
     
     return nil;
@@ -1383,6 +1396,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     
 }
+
 
 
 //#pragma mark - ICETutorialController delegate
