@@ -12,14 +12,13 @@
 #import <Social/Social.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "GoogleMobileAds/GADInterstitial.h"
-#import "ALRadialMenu.h"
 #import "BFPaperCheckbox.h"
 #import "ICETutorialController.h"
 
 
 @import GoogleMobileAds ;
 
-@interface ViewController : UIViewController<GADInterstitialDelegate,ALRadialMenuDelegate,BFPaperCheckboxDelegate,ICETutorialControllerDelegate>
+@interface ViewController : UIViewController<GADInterstitialDelegate,BFPaperCheckboxDelegate,ICETutorialControllerDelegate>
 {
     
     float redlineNumber ;
@@ -64,6 +63,8 @@
     NSUserDefaults *savefutosa ;
     
     NSUserDefaults *saveopacity ;
+    
+    UIColor *paintColor ;
     
     int rgb ;//ペンの色
         
@@ -121,11 +122,14 @@
 - (IBAction)buttonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *radialbutton;
 
-@property (strong, nonatomic) ALRadialMenu *radialMenu;
+//@property (strong, nonatomic) ALRadialMenu *radialMenu;
 
 @property (strong, nonatomic) NSArray *popups;
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) IBOutlet ICETutorialController *TutorialViewController;
+
+
+
 
 @end

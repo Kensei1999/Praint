@@ -88,11 +88,11 @@
                                                             duration:3.0];
     ICETutorialPage *layer5 = [[ICETutorialPage alloc] initWithTitle:@"4.シェア"
                                                             subTitle:@"共有ボタンでは自分の描いた絵を保存したり、twitterやlineなどで自慢できます"
-                                                         pictureName:@"説明4.png"
+                                                         pictureName:@"説明5.png"
                                                             duration:3.0];
     ICETutorialPage *layer6 = [[ICETutorialPage alloc] initWithTitle:@"5.設定"
                                                             subTitle:@"パレットボタンでは、ペンの太さや色などを自分好みに設定できます"
-                                                         pictureName:@"説明5.png"
+                                                         pictureName:@"説明4.png"
                                                             duration:3.0];
     ICETutorialPage *layer7 = [[ICETutorialPage alloc] initWithTitle:@""
                                                             subTitle:@"それでは、お絵描きを楽しんでください！"
@@ -185,6 +185,7 @@
 //
 //    [self.TutorialViewController stopScrolling];
 //}
+
 
 
 @end

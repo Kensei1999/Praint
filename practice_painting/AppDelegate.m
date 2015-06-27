@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+//#import "GAI.h"
+
 
 
 #define INTERSTITIAL_AD_UNIT_ID @"ca-app-pub-9211047756234595/7610322869"
@@ -19,6 +21,11 @@
     
     UIStoryboard *storyboard; // StoryBoardの型宣言
     NSString *storyBoardName; // StoryBoardの名称設定用
+    
+    // Google Analyticsの初期化
+//    [self initializeGoogleAnalytics];
+    
+    return YES;
     
     // 機種の取得
     NSString *modelname = [ [ UIDevice currentDevice] model];
@@ -118,6 +125,21 @@
 
 }
 
+//- (void)initializeGoogleAnalytics
+//{
+//    // トラッキングIDを設定
+//    [[GAI sharedInstance] trackerWithTrackingId:@"UA-XXXX-Y"];
+//    
+//    // 例外を Google Analytics に送る
+//    [GAI sharedInstance].trackUncaughtExceptions = YES;
+//    
+//}
+
+-(void)applicationDidFinishLaunching:(UIApplication *)application{
+    
+
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

@@ -25,7 +25,6 @@
 		531BDCEF1918EDAD00ABD7EB /* colorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 531BDCEE1918EDAD00ABD7EB /* colorViewController.m */; };
 		53340B7D199A1D37009ADA7A /* 木目（praint）.png in Resources */ = {isa = PBXBuildFile; fileRef = 53340B7C199A1D37009ADA7A /* 木目（praint）.png */; };
 		53382243191493EA00E7D2AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53382242191493EA00E7D2AE /* Foundation.framework */; };
-		53382245191493EA00E7D2AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53382244191493EA00E7D2AE /* CoreGraphics.framework */; };
 		53382247191493EA00E7D2AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53382246191493EA00E7D2AE /* UIKit.framework */; };
 		5338224D191493EA00E7D2AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5338224B191493EA00E7D2AE /* InfoPlist.strings */; };
 		5338224F191493EA00E7D2AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5338224E191493EA00E7D2AE /* main.m */; };
@@ -48,6 +47,7 @@
 		533A75A81918624E004DBAE9 /* 木目（お絵描き練習）.png in Resources */ = {isa = PBXBuildFile; fileRef = 533A75A71918624E004DBAE9 /* 木目（お絵描き練習）.png */; };
 		533A75AC19186561004DBAE9 /* 使い方ボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 533A75AB19186561004DBAE9 /* 使い方ボタン.png */; };
 		533A75AE1918682F004DBAE9 /* スタートボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 533A75AD1918682F004DBAE9 /* スタートボタン.png */; };
+		534FD5E41B2C0EFE00C5FB95 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534FD5E31B2C0EFE00C5FB95 /* CoreData.framework */; };
 		536A2F081917C94500FBAEFE /* 背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 536A2F061917C94500FBAEFE /* 背景.png */; };
 		536A2F0E1917CADA00FBAEFE /* 使い方ボタン.png in Resources */ = {isa = PBXBuildFile; fileRef = 536A2F0D1917CADA00FBAEFE /* 使い方ボタン.png */; };
 		536A2F111917CC1200FBAEFE /* ExplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 536A2F101917CC1200FBAEFE /* ExplainViewController.m */; };
@@ -59,6 +59,17 @@
 		5379CF6219A1CB9F001031B5 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5379CF6119A1CB9F001031B5 /* Twitter.framework */; };
 		5380400E1AC4DD0A00E04411 /* palette_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5380400D1AC4DD0A00E04411 /* palette_ipad.png */; };
 		5382C9161AC236C1004F2CA6 /* palette_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5382C9151AC236C1004F2CA6 /* palette_2.png */; };
+		53A633B91B198D1C00CB9C30 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A633B81B198D1C00CB9C30 /* AudioToolbox.framework */; };
+		53A633BB1B198D2500CB9C30 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A633BA1B198D2500CB9C30 /* CFNetwork.framework */; };
+		53A633BD1B198D3700CB9C30 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A633BC1B198D3700CB9C30 /* CoreLocation.framework */; };
+		53A633BF1B198D4200CB9C30 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A633BE1B198D4200CB9C30 /* MobileCoreServices.framework */; };
+		53A633C11B198D5300CB9C30 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A633C01B198D5300CB9C30 /* Security.framework */; };
+		53A633C31B198D5D00CB9C30 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A633C21B198D5D00CB9C30 /* StoreKit.framework */; };
+		53A633C51B198D6A00CB9C30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A633C41B198D6A00CB9C30 /* SystemConfiguration.framework */; };
+		53A633C71B198D7A00CB9C30 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A633C61B198D7A00CB9C30 /* libz.dylib */; };
+		53A633C91B198D8C00CB9C30 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A633C81B198D8C00CB9C30 /* libsqlite3.dylib */; };
+		53A633CB1B198E3600CB9C30 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A633CA1B198E3600CB9C30 /* Accounts.framework */; };
+		53A633CC1B19945A00CB9C30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53382244191493EA00E7D2AE /* CoreGraphics.framework */; };
 		53B6D64A1AC44C4200310806 /* brush7.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B6D6481AC44C4200310806 /* brush7.png */; };
 		53B6D64B1AC44C4200310806 /* paint8.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B6D6491AC44C4200310806 /* paint8.png */; };
 		53B6D64D1AC4565700310806 /* palette_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B6D64C1AC4565700310806 /* palette_3.png */; };
@@ -138,6 +149,7 @@
 		533A75A71918624E004DBAE9 /* 木目（お絵描き練習）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "木目（お絵描き練習）.png"; sourceTree = "<group>"; };
 		533A75AB19186561004DBAE9 /* 使い方ボタン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "使い方ボタン.png"; sourceTree = "<group>"; };
 		533A75AD1918682F004DBAE9 /* スタートボタン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "スタートボタン.png"; sourceTree = "<group>"; };
+		534FD5E31B2C0EFE00C5FB95 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		536A2F061917C94500FBAEFE /* 背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背景.png"; sourceTree = "<group>"; };
 		536A2F0D1917CADA00FBAEFE /* 使い方ボタン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "使い方ボタン.png"; sourceTree = "<group>"; };
 		536A2F0F1917CC1200FBAEFE /* ExplainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplainViewController.h; sourceTree = "<group>"; };
@@ -150,6 +162,16 @@
 		5379CF6119A1CB9F001031B5 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5380400D1AC4DD0A00E04411 /* palette_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette_ipad.png; sourceTree = "<group>"; };
 		5382C9151AC236C1004F2CA6 /* palette_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette_2.png; sourceTree = "<group>"; };
+		53A633B81B198D1C00CB9C30 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		53A633BA1B198D2500CB9C30 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		53A633BC1B198D3700CB9C30 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		53A633BE1B198D4200CB9C30 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		53A633C01B198D5300CB9C30 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		53A633C21B198D5D00CB9C30 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		53A633C41B198D6A00CB9C30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		53A633C61B198D7A00CB9C30 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		53A633C81B198D8C00CB9C30 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		53A633CA1B198E3600CB9C30 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		53B6D6481AC44C4200310806 /* brush7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brush7.png; sourceTree = "<group>"; };
 		53B6D6491AC44C4200310806 /* paint8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paint8.png; sourceTree = "<group>"; };
 		53B6D64C1AC4565700310806 /* palette_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette_3.png; sourceTree = "<group>"; };
@@ -176,14 +198,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				531A3FE01AFF7CF5004363EA /* QuartzCore.framework in Frameworks */,
 				53B937B319A2F4C8000208C4 /* Social.framework in Frameworks */,
+				53A633CB1B198E3600CB9C30 /* Accounts.framework in Frameworks */,
+				53A633C91B198D8C00CB9C30 /* libsqlite3.dylib in Frameworks */,
+				53A633C31B198D5D00CB9C30 /* StoreKit.framework in Frameworks */,
+				53A633C11B198D5300CB9C30 /* Security.framework in Frameworks */,
+				531A3FE01AFF7CF5004363EA /* QuartzCore.framework in Frameworks */,
+				53A633BF1B198D4200CB9C30 /* MobileCoreServices.framework in Frameworks */,
+				53A633BD1B198D3700CB9C30 /* CoreLocation.framework in Frameworks */,
+				53A633BB1B198D2500CB9C30 /* CFNetwork.framework in Frameworks */,
+				53A633B91B198D1C00CB9C30 /* AudioToolbox.framework in Frameworks */,
+				D0FA67447AB6C94915A63F30 /* libPods.a in Frameworks */,
 				5379CF6219A1CB9F001031B5 /* Twitter.framework in Frameworks */,
-				53382245191493EA00E7D2AE /* CoreGraphics.framework in Frameworks */,
+				53C5B9781AC29D5D00CCD04F /* GoogleMobileAds.framework in Frameworks */,
+				53A633CC1B19945A00CB9C30 /* CoreGraphics.framework in Frameworks */,
 				53382247191493EA00E7D2AE /* UIKit.framework in Frameworks */,
 				53382243191493EA00E7D2AE /* Foundation.framework in Frameworks */,
-				53C5B9781AC29D5D00CCD04F /* GoogleMobileAds.framework in Frameworks */,
-				D0FA67447AB6C94915A63F30 /* libPods.a in Frameworks */,
+				534FD5E41B2C0EFE00C5FB95 /* CoreData.framework in Frameworks */,
+				53A633C51B198D6A00CB9C30 /* SystemConfiguration.framework in Frameworks */,
+				53A633C71B198D7A00CB9C30 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +257,17 @@
 		53382241191493EA00E7D2AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				534FD5E31B2C0EFE00C5FB95 /* CoreData.framework */,
+				53A633CA1B198E3600CB9C30 /* Accounts.framework */,
+				53A633C81B198D8C00CB9C30 /* libsqlite3.dylib */,
+				53A633C61B198D7A00CB9C30 /* libz.dylib */,
+				53A633C41B198D6A00CB9C30 /* SystemConfiguration.framework */,
+				53A633C21B198D5D00CB9C30 /* StoreKit.framework */,
+				53A633C01B198D5300CB9C30 /* Security.framework */,
+				53A633BE1B198D4200CB9C30 /* MobileCoreServices.framework */,
+				53A633BC1B198D3700CB9C30 /* CoreLocation.framework */,
+				53A633BA1B198D2500CB9C30 /* CFNetwork.framework */,
+				53A633B81B198D1C00CB9C30 /* AudioToolbox.framework */,
 				531A3FDF1AFF7CF5004363EA /* QuartzCore.framework */,
 				53B937B219A2F4C8000208C4 /* Social.framework */,
 				5379CF6119A1CB9F001031B5 /* Twitter.framework */,
@@ -621,6 +665,39 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Pods-BFPaperCheckbox\"",
+					"-l\"Pods-ICETutorial\"",
+					"-l\"Pods-UIColor+BFPaperColors\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"EventKit\"",
+					"-framework",
+					"\"EventKitUI\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -652,6 +729,39 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Pods-BFPaperCheckbox\"",
+					"-l\"Pods-ICETutorial\"",
+					"-l\"Pods-UIColor+BFPaperColors\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"EventKit\"",
+					"-framework",
+					"\"EventKitUI\"",
+					"-framework",
+					"\"GoogleMobileAds\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+				);
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -672,6 +782,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "practice_painting/praint-Prefix.pch";
 				INFOPLIST_FILE = "practice_painting/praint-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/practice_painting/GoogleAnalyticsServicesiOS_3.12",
+					"$(PROJECT_DIR)/practice_painting/GoogleAnalytics",
+					/Users/kenseiishii/Downloads/GoogleAnalyticsServicesiOS_3.12/GoogleAnalytics,
+					"$(PROJECT_DIR)/practice_painting/GoogleAnalyticsLibrary",
+					/Users/kenseiishii/Downloads/GoogleAnalyticsServicesiOS_3.12/GoogleAnalytics/GoogleAnalyticsLibrary,
+				);
+				OTHER_LDFLAGS = "$(inherited) ";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = praint;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -694,6 +815,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "practice_painting/praint-Prefix.pch";
 				INFOPLIST_FILE = "practice_painting/praint-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/practice_painting/GoogleAnalyticsServicesiOS_3.12",
+					"$(PROJECT_DIR)/practice_painting/GoogleAnalytics",
+					/Users/kenseiishii/Downloads/GoogleAnalyticsServicesiOS_3.12/GoogleAnalytics,
+					"$(PROJECT_DIR)/practice_painting/GoogleAnalyticsLibrary",
+					/Users/kenseiishii/Downloads/GoogleAnalyticsServicesiOS_3.12/GoogleAnalytics/GoogleAnalyticsLibrary,
+				);
+				OTHER_LDFLAGS = "$(inherited) ";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = praint;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

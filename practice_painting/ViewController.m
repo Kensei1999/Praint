@@ -8,13 +8,13 @@
 
 #import "ViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "ALRadialMenu.h"
-#import "ALRadialButton.h"
+//#import "ALRadialMenu.h"
+//#import "ALRadialButton.h"
 #import "BFPaperCheckbox.h"
 #import "ICETutorialController.h"
 #import "ICETutorialPage.h"
 #import "ICETutorialStyle.h"
-
+#import "InfColorPicker.h"
 
 
 @import GoogleMobileAds ;
@@ -35,19 +35,21 @@
     
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     [self createAndLoadInterstitial];
+    
+    // "トップ画面"が開かれたときのトラッキング情報を送る
+//    [Trackingmanager sendScreenTracking:@"トップ画面"];
 
     DrawingNumber = 0 ;
         
     //create an instance of the radial menu and set ourselves as the delegate.
-    self.radialMenu = [[ALRadialMenu alloc] init];
-    self.radialMenu.delegate = self;
-    
+//    self.radialMenu = [[ALRadialMenu alloc] init];
+//    self.radialMenu.delegate = self;
+//    
     // Set up fist checkbox:
     self.paperCheckbox = [[BFPaperCheckbox alloc] initWithFrame:CGRectMake(109, 0, bfPaperCheckboxDefaultRadius * 2, bfPaperCheckboxDefaultRadius * 2)];
     self.paperCheckbox.tag = 1001;
@@ -60,7 +62,6 @@
     self.paperCheckboxLabel.backgroundColor = [UIColor clearColor];
     self.paperCheckboxLabel.center = CGPointMake(self.paperCheckbox.center.x + ((2 * self.paperCheckboxLabel.frame.size.width) / 3), self.paperCheckbox.center.y);
     [settingView addSubview:self.paperCheckboxLabel];
-    
     
 
     
@@ -267,6 +268,8 @@
 
 -(IBAction)eraser {
     
+//     [Trackingmanager sendEventTracking:@"Button" action:@"Push" label:@"消しゴム切り替え" value:nil screen:@"トップ画面"];
+    
   if(rgb == 0){
       
       rgb = 1 ; //ONになると消しゴムを使用するために変数rgbを1（白ペン）に切り替える
@@ -284,13 +287,33 @@
   }
     
 }
-
-
+- (void) colorPickerControllerDidFinish: (InfColorPickerController*) picker
+{
+    const CGFloat *components = CGColorGetComponents(picker.resultColor.CGColor);
+    redlineNumber = components[0] ;
+    greenlineNumber = components[1] ;
+    bluelineNumber = components[2] ;
+    
+    [self dismissModalViewControllerAnimated:YES] ;
+}
 
 //画面に指をタッチしたときの処理
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     settingView.hidden = YES ;
+    
+    _brushPreview.userInteractionEnabled = YES;
+    //タッチされたUIImageViewの判定
+    if([event touchesForView:_brushPreview] != NULL)
+    {
+        //タッチ認識時の処理
+        InfColorPickerController* picker = [ InfColorPickerController colorPickerViewController ];
+        
+        picker.delegate = self;
+        
+        [ picker presentModallyOverViewController: self ];
+        
+    }
     
 //    //タッチ開始座標を先ほど宣言したtouchPointという変数に入れる
     UITouch *touch = [touches anyObject] ;
@@ -1327,110 +1350,82 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
 }
 
-- (IBAction)buttonPressed:(id)sender {
-    //the button that brings the items into view was pressed
-        [self.radialMenu buttonsWillAnimateFromButton:sender withFrame:self.radialbutton.frame inView:self.view];
-    
-}
-
-
-#pragma mark - radial menu delegate methods
-- (NSInteger) numberOfItemsInRadialMenu:(ALRadialMenu *)radialMenu {
-    //FIXME: dipshit, change one of these variable names
-        return 6;
-
-}
-
-
-- (NSInteger) arcSizeForRadialMenu:(ALRadialMenu *)radialMenu {
-        return 360;
-
-}
-
-
-- (NSInteger) arcRadiusForRadialMenu:(ALRadialMenu *)radialMenu {
-        return 80;
-    
-}
-
-
-- (ALRadialButton *) radialMenu:(ALRadialMenu *)radialMenu buttonForIndex:(NSInteger)index {
-    ALRadialButton *button = [[ALRadialButton alloc] init];
-        if (index == 1) {
-            [button setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateNormal];
-        } else if (index == 2) {
-            [button setImage:[UIImage imageNamed:@"youtube"] forState:UIControlStateNormal];
-        } else if (index == 3) {
-            [button setImage:[UIImage imageNamed:@"vimeo"] forState:UIControlStateNormal];
-        } else if (index == 4) {
-            [button setImage:[UIImage imageNamed:@"pinterest"] forState:UIControlStateNormal];
-        } else if (index == 5) {
-            [button setImage:[UIImage imageNamed:@"twitter"] forState:UIControlStateNormal];
-        } else if (index == 6) {
-            [button setImage:[UIImage imageNamed:@"instagram500"] forState:UIControlStateNormal];
-        }
-
-    if (button.imageView.image) {
-        return button;
-        if (index == 1) {
-//            [button setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateNormal];
-        } else if (index == 2) {
-//            [button setImage:[UIImage imageNamed:@"youtube"] forState:UIControlStateNormal];
-        } else if (index == 3) {
-//            [button setImage:[UIImage imageNamed:@"vimeo"] forState:UIControlStateNormal];
-        } else if (index == 4) {
-//            [button setImage:[UIImage imageNamed:@"pinterest"] forState:UIControlStateNormal];
-        } else if (index == 5) {
-//            [button setImage:[UIImage imageNamed:@"twitter"] forState:UIControlStateNormal];
-        } else if (index == 6) {
-//            [button setImage:[UIImage imageNamed:@"instagram500"] forState:UIControlStateNormal];
-        }
-    }
-    
-    return nil;
-}
-
-
-- (void) radialMenu:(ALRadialMenu *)radialMenu didSelectItemAtIndex:(NSInteger)index {
-        [self.radialMenu itemsWillDisapearIntoButton:self.radialbutton];
-    
-    
-}
-
-
-
-//#pragma mark - ICETutorialController delegate
-//- (void)tutorialController:(ICETutorialController *)tutorialController scrollingFromPageIndex:(NSUInteger)fromIndex toPageIndex:(NSUInteger)toIndex {
-//    NSLog(@"Scrolling from page %lu to page %lu.", (unsigned long)fromIndex, (unsigned long)toIndex);
+//
+//
+//- (IBAction)buttonPressed:(id)sender {
+//    //the button that brings the items into view was pressed
+//        [self.radialMenu buttonsWillAnimateFromButton:sender withFrame:self.radialbutton.frame inView:self.view];
 //    
 //}
 //
-//- (void)tutorialControllerDidReachLastPage:(ICETutorialController *)tutorialController {
-//    NSLog(@"Tutorial reached the last page.");
-//    
-//    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil] ;
-////    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil] ;
 //
-//    [self.TutorialViewController stopScrolling];
+//#pragma mark - radial menu delegate methods
+//- (NSInteger) numberOfItemsInRadialMenu:(ALRadialMenu *)radialMenu {
+//    //FIXME: dipshit, change one of these variable names
+//        return 5;
 //
-//    
-////    [self.interstitial presentFromRootViewController:self];
+//}
 //
 //
+//- (NSInteger) arcSizeForRadialMenu:(ALRadialMenu *)radialMenu {
+//        return 360;
+//
+//}
+//
+//
+//- (NSInteger) arcRadiusForRadialMenu:(ALRadialMenu *)radialMenu {
+//        return 80;
 //    
 //}
 //
-////- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnLeftButton:(UIButton *)sender {
-////    NSLog(@"Button 1 pressed.");
-////    
-////}
-////
-////- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnRightButton:(UIButton *)sender {
-////    NSLog(@"Button 2 pressed.");
-////    NSLog(@"Auto-scrolling stopped.");
-////    
-////    [self.TutorialViewController stopScrolling];
-////}
+//
+//- (ALRadialButton *) radialMenu:(ALRadialMenu *)radialMenu buttonForIndex:(NSInteger)index {
+//    ALRadialButton *button = [[ALRadialButton alloc] init];
+//    NSLog(@"あ");
+//        if (index == 1) {
+//            [button setImage:[UIImage imageNamed:@"refresh21"] forState:UIControlStateNormal];
+//        } else if (index == 2) {
+//            [button setImage:[UIImage imageNamed:@"refresh21"] forState:UIControlStateNormal];
+//        } else if (index == 3) {
+//            [button setImage:[UIImage imageNamed:@"refresh21"] forState:UIControlStateNormal];
+//        } else if (index == 4) {
+//            [button setImage:[UIImage imageNamed:@"refresh21"] forState:UIControlStateNormal];
+//        } else if (index == 5) {
+//            [button setImage:[UIImage imageNamed:@"refresh21"] forState:UIControlStateNormal];
+//        } else if (index == 6) {
+//            [button setImage:[UIImage imageNamed:@"refresh21"] forState:UIControlStateNormal];
+//        }
+//    NSLog(@"い");
+//    if (button.imageView.image) {
+//        return button;
+//        if (index == 1) {
+////            [button setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateNormal];
+//        } else if (index == 2) {
+////            [button setImage:[UIImage imageNamed:@"youtube"] forState:UIControlStateNormal];
+//        } else if (index == 3) {
+////            [button setImage:[UIImage imageNamed:@"vimeo"] forState:UIControlStateNormal];
+//        } else if (index == 4) {
+////            [button setImage:[UIImage imageNamed:@"pinterest"] forState:UIControlStateNormal];
+//        } else if (index == 5) {
+////            [button setImage:[UIImage imageNamed:@"twitter"] forState:UIControlStateNormal];
+//        } else if (index == 6) {
+////            [button setImage:[UIImage imageNamed:@"instagram500"] forState:UIControlStateNormal];
+//        }
+//    }
+//    NSLog(@"う");
+//    return nil;
+//}
+//
+//
+//- (void) radialMenu:(ALRadialMenu *)radialMenu didSelectItemAtIndex:(NSInteger)index {
+//    
+//    [self.radialMenu itemsWillDisapearIntoButton:self.radialbutton];
+//    
+//    
+//}
+//
+
+
 
 
 
